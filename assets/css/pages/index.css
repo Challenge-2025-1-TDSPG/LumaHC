@@ -81,7 +81,7 @@ body {
   .botao-destaque:hover {
     background-color: #e67e00;
   }
-  
+
   /* ======== CARTÕES ======== */
 .acessos {
     display: flex;
@@ -130,4 +130,113 @@ body {
   
   .botao:hover {
     background-color: #e67e00;
+  }
+
+  /* ======== FOOTER ======== */
+.footer {
+    background: linear-gradient(to left, #F7941D, #FFCC80);
+    color: white;
+    padding: 16px 12px;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer-container p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .footer-links a {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ======== RESPONSIVO MOBILE FIRST ======== */
+  @media (min-width: 600px) {
+    .boas-vindas {
+      flex-direction: row;
+      justify-content: center;
+      text-align: left;
+    }
+  
+    .boas-vindas .texto {
+      max-width: 500px;
+    }
+  
+    .acessos {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .boas-vindas .texto h2 {
+      font-size: 28px;
+    }
+  
+    .boas-vindas .texto p {
+      font-size: 18px;
+    }
+  
+    .cartao h3 {
+      font-size: 20px;
+    }
+  
+    .cartao p {
+      font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .topo {
+      padding: 20px 40px;
+    }
+  
+    .boas-vindas {
+      padding: 40px;
+    }
+  
+    .acessos {
+      padding: 40px;
+      gap: 30px;
+    }
+  
+    .cartao {
+      max-width: 320px;
+    }
+  
+    .botao, .botao-destaque {
+      font-size: 16px;
+      padding: 12px 24px;
+    }
+  }
+  
+  @media (min-width: 1300px) {
+    .boas-vindas .texto {
+      max-width: 600px;
+    }
+  
+    .cartao {
+      max-width: 350px;
+    }
+  
+    .cartao img {
+      height: 60px;
+    }
   }
