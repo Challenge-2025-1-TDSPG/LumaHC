@@ -4,21 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial - Portal do Paciente HC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/pages/index.css">
-
+    <title>Página Inicial - Portal do Paciente HC</title>
         <script defer src="assets/js/bot.js"></script>
 </head>
 
 <body>
-    <header class="topo">
-        <div class="saudacao">
-            <h1>Olá, Usuário</h1>
-        </div>
-        <div class="perfil">
-            <span class="icone-perfil">👤</span>
-        </div>
+    <header>
+        <nav class="nav-bar">
+            <div class="profile">
+                <img src="assets/img/geral/avatar.png" alt="Imagem de um Avatar">
+                <h2>Olá, Usuário!</h2>
+                <p>Vamos te ajudar</p>
+            </div>
+            <ul>
+                <li><a href="assets/auxilio/teleconsulta.html">Auxílio Teleconsulta</a></li>
+                <li><a href="assets/auxilio/cadastro.html">Auxílio Cadastro</a></li>
+                <li><a href="assets/integrantes/integrantes.html">Integrantes</a></li>
+                <li><a href="assets/contato/contato.html">Contato</a></li>
+                <li><a href="assets/faq/faq.html">FAQ</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="conteudo">
@@ -58,13 +69,13 @@
                 <a href="assets/integrantes/integrantes.html" class="botao">Acessar</a>
             </div>
         </section>
-
+    </main>
     <footer class="footer">
         <div class="footer-container">
             <p>&copy; 2025 LumaHC. Todos os direitos reservados.</p>
             <ul class="footer-links">
-                <li><a href="../Contato/contato.html">Contato</a></li>
-                <li><a href="../FAQ/FAQ.html">FAQ</a></li>
+                <li><a href="assets/contato/contato.html">Contato</a></li>
+                <li><a href="assets/faq/faq.html">FAQ</a></li>
                 <li><a href="https://redelucymontoro.org.br/site/" target="_blank">Site Oficial IMREA</a></li>
             </ul>
         </div>
