@@ -1,0 +1,44 @@
+/* ======== BASE ======== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFEFD8;
+    color: #3b241f;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ======== HEADER ======== */
+  .topo {
+    background: linear-gradient(to left, #F7941D, #FFCC80);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    color: #000;
+  }
+  
+  .saudacao h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .perfil .icone-perfil {
+    font-size: 24px;
+  }
