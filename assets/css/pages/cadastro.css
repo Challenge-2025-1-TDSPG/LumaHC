@@ -1,0 +1,144 @@
+/* ========== MOBILE FIRST (até 600px) ========== */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container das colunas */
+.bloco-app, .bloco-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Cada coluna (App / Navegador) ocupa quase a tela toda */
+.coluna {
+    width: 90%;
+    max-width: 500px;
+}
+
+/* Cartão visual com sombra */
+.opcao {
+    background-color: #fde6c6;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões grandes e legíveis */
+.botao {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 20px;
+    background-color: #F7941D;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.botao:hover {
+    background-color: #e67e00;
+}
+
+/* Tutorial abaixo de cada opção */
+.tutorial {
+    background-color: #fde6c6;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+.tutorial h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.tutorial ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tutorial li {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.cartao-tutorial {
+    display: none;
+}
+
+.cartao-tutorial.ativo {
+    display: block;
+}
+
+.tutorial img {
+    width: 100%;
+    max-width: 280px;
+    max-height: 420px;
+    object-fit: contain;
+    display: block;
+    margin: 10px auto;
+    background-color: #fff8e6;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-nav img {
+    width: 100%;
+    max-width: 520px;
+    max-height: 480px;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #F7941D;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.icon-app {
+  width: 20px;
+  height: 20px;
+}
+
+.botoes-carrossel {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.botoes-carrossel button {
+  background-color: #F7941D;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  flex: 1;
+  transition: background-color 0.3s;
+}
+
+.botoes-carrossel button:hover {
+  background-color: #e67e00;
+}
