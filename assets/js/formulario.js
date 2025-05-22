@@ -35,3 +35,77 @@ telInput.addEventListener("input", () => {
   }
   telInput.value = value;
 });
+
+// ------------------ VALIDAÇÃO EM TEMPO REAL (inclui CPF) --------------------
+form.addEventListener("input", () => {
+    let valido = true; // Começa assumindo que está tudo válido
+  
+    // Verifica se todos os campos obrigatórios estão válidos
+    inputs.forEach(input => {
+      if (!input.checkValidity()) valido = false;
+    });
+  
+  
+    // Valida se há pelo menos um item marcado em cada grupo de rádio
+    radioGroups.forEach(name => {
+      const radios = form.querySelectorAll(`input[name="${name}"]`);
+      const container = radios[0]?.closest(".radio-group");
+      const checked = Array.from(radios).some(r => r.checked); // Algum está marcado?
+  
+      if (container) {
+        container.classList.toggle("invalid", !checked); // Aplica classe visual
+        container.classList.toggle("valid", checked);
+      }
+      if (!checked) valido = false; // Se nenhum estiver marcado, formulário não é válido
+    });
+  
+    // Valida CPF em tempo real com valor já sem pontos e traços
+    const cpfValido = validarCPF(cpfInput.value.replace(/\D/g, ""));
+    if (cpfValido) {
+      cpfInput.classList.add("valid");
+      cpfInput.classList.remove("invalid");
+    } else {
+      cpfInput.classList.add("invalid");
+      cpfInput.classList.remove("valid");
+      valido = false;
+    }
+  
+    // Ativa ou desativa o botão com base na validade
+    botaoEnviar.disabled = !valido;
+  });
+  
+  // ------------------ VALIDAÇÃO CPF REAL --------------------
+  function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, ''); // Remove tudo que não é número
+  
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false; // Inválido se todos os dígitos iguais
+  
+    let soma = 0;
+    for (let i = 0; i < 9; i++) soma += parseInt(cpf[i]) * (10 - i);
+    let dig1 = 11 - (soma % 11);
+    if (dig1 >= 10) dig1 = 0;
+    if (dig1 != cpf[9]) return false;
+  
+    soma = 0;
+    for (let i = 0; i < 10; i++) soma += parseInt(cpf[i]) * (11 - i);
+    let dig2 = 11 - (soma % 11);
+    if (dig2 >= 10) dig2 = 0;
+  
+    return dig2 == cpf[10]; // Retorna true se ambos os dígitos conferem
+  }
+  
+  // ------------------ VALIDAÇÃO FINAL E REDIRECIONAMENTO --------------------
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita envio padrão
+  
+    const nome = document.getElementById("nome").value;
+    const cpf = document.getElementById("cpf").value;
+  
+    if (!validarCPF(cpf)) {
+      alert("CPF inválido."); // Alerta caso o CPF esteja incorreto
+      return;
+    }
+  
+    localStorage.setItem("nomeUsuario", nome); // Armazena o nome para usar depois
+    window.location.href = "../paginaAuxilio/cadastro.html";       // Redireciona para página de confirmação
+  });
