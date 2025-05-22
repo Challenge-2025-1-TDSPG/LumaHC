@@ -114,3 +114,20 @@ button:disabled {
 
     
   }
+
+  .campo-validacao {
+  position: relative;
+}
+
+.campo-validacao input {
+  width: 100%;
+  padding-right: 30px;
+}
+
+.icone-validacao {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
