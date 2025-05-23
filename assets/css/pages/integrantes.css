@@ -127,3 +127,85 @@ button#btn-proximo {
 button#btn-proximo:hover {
   background-color: #e76f00;
 }
+
+
+@media (min-width: 600px) {
+  .cartao-topo {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .detalhes {
+    align-items: flex-end;
+  }
+
+  .links-sociais {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 768px) {
+main {
+  margin-left: 290px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+  .integrante{
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .cartao-integrante {
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .nome {
+    font-size: 36px;
+  }
+
+  .rm {
+    font-size: 22px;
+  }
+
+  .links-sociais img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .sobre {
+    font-size: 18px;
+  }
+
+  .sobre p {
+    font-size: 16px;
+  }
+
+button#btn-proximo {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 900px;
+  padding: 14px 24px;
+  font-size: 18px;
+}
+}
+
+
+@media (min-width: 992px) {
+  .cartao-integrante {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .cartao-integrante {
+    max-width: 1100px;
+  }
+}
