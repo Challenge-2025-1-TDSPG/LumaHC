@@ -115,7 +115,7 @@ form.addEventListener("submit", function (e) {
   }
 
   localStorage.setItem("nomeUsuario", nome); // Armazena o nome para usar depois
-  window.location.href = "../paginaAuxilio/cadastro.html";       // Redireciona para página de confirmação
+  window.location.href = "../auxilio/cadastro.html";       // Redireciona para página de confirmação
 });
 
   botaoCancelar.addEventListener("click", () => {
