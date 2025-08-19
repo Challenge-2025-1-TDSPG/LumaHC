@@ -26,7 +26,7 @@ const CARDS = [
 
 export default function AcessosSection() {
   return (
-    <section className="acessos">
+    <section className='acessos'>
       {CARDS.map((c) => (
         <AcessoCard
           key={c.href}

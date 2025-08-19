@@ -16,13 +16,13 @@ export default function MemberCard({ m }: Props) {
 
       <div>
         {m.linkedin && (
-          <a href={m.linkedin} target="_blank" rel="noreferrer">
-            <img src="/img/icones/linkedin.png" alt="LinkedIn" />
+          <a href={m.linkedin} target='_blank' rel='noreferrer'>
+            <img src='/img/icones/linkedin.png' alt='LinkedIn' />
           </a>
         )}
         {m.github && (
-          <a href={m.github} target="_blank" rel="noreferrer">
-            <img src="/img/icones/github.png" alt="GitHub" />
+          <a href={m.github} target='_blank' rel='noreferrer'>
+            <img src='/img/icones/github.png' alt='GitHub' />
           </a>
         )}
       </div>

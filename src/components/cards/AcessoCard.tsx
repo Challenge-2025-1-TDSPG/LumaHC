@@ -8,13 +8,13 @@ type AcessoCardProps = {
 
 export default function AcessoCard({ imgSrc, imgAlt, title, description, href }: AcessoCardProps) {
   return (
-    <div className="cartao">
+    <div className='cartao'>
       <div>
         <img src={imgSrc} alt={imgAlt} />
       </div>
       <h3>{title}</h3>
       <p>{description}</p>
-      <a href={href} className="botao">
+      <a href={href} className='botao'>
         Acessar
       </a>
     </div>

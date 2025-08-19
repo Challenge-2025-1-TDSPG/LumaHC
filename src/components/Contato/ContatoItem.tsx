@@ -1,10 +1,10 @@
-import type { Contato } from "./contatos";
+import type { Contato } from './contatos';
 
 type Props = { item: Contato };
 
 export default function ContatoItem({ item }: Props) {
   return (
-    <div className="contato">
+    <div className='contato'>
       <h3>{item.titulo}</h3>
 
       {item.presencial && <p>Presencial: {item.presencial}</p>}
@@ -21,11 +21,7 @@ export default function ContatoItem({ item }: Props) {
 
       {item.linkExterno && (
         <p>
-          <a
-            href={item.linkExterno.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={item.linkExterno.href} target='_blank' rel='noopener noreferrer'>
             {item.linkExterno.rotulo}
           </a>
         </p>

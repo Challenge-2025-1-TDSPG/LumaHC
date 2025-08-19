@@ -3,7 +3,7 @@ import AcessosSection from './sections/AcessosSection';
 
 export default function Home() {
   return (
-    <main className="conteudo">
+    <main className='conteudo'>
       <BoasVindasSection />
       <AcessosSection />
     </main>
