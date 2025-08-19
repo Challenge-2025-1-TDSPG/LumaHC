@@ -1,5 +1,5 @@
-import BoasVindasSection from './BoasVindasSection';
-import AcessosSection from './AcessosSection';
+import BoasVindasSection from './sections/BoasVindasSection';
+import AcessosSection from './sections/AcessosSection';
 
 export default function Home() {
   return (

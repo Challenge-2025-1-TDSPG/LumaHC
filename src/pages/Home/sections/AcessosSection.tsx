@@ -1,4 +1,4 @@
-import AcessoCard from '../../components/common/AcessoCard';
+import AcessoCard from '../../../components/cards/AcessoCard';
 
 const CARDS = [
   {
