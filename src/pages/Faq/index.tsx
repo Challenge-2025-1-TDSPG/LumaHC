@@ -1,5 +1,5 @@
-import { faqData } from './faqData';
-import FaqItem from './FaqItem';
+import { faqData } from '../../components/Faq/faqData';
+import FaqItem from '../../components/Faq/FaqItem';
 
 export default function Faq() {
   return (
