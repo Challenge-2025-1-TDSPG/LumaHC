@@ -1,4 +1,4 @@
-import MainMenu from "./MainMenu";
+import MainMenu from './MainMenu';
 
 export default function Header() {
   return (
@@ -6,12 +6,12 @@ export default function Header() {
       <nav className="nav-bar">
         <div className="profile">
           //*TODO: adicionar avatar quando assets estiverem no public
-           <img src="/assets/img/geral/avatar.png" alt="Imagem de um Avatar" /> 
+          <img src="/assets/img/geral/avatar.png" alt="Imagem de um Avatar" />
           <h2>Olá, Usuário!</h2>
           <p>Vamos te ajudar</p>
         </div>
         <MainMenu />
       </nav>
     </header>
-  )
+  );
 }
