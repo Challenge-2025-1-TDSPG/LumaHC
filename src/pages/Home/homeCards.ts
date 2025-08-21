@@ -1,10 +1,5 @@
-export type HomeCard = {
-  imgSrc: string;
-  imgAlt: string;
-  title: string;
-  description: string;
-  href: string;
-};
+import type { HomeCard } from '../../../components/data/navItems';
+import {celular, pessoa, users} from '../../../img';
 
 export const HOME_CARDS: HomeCard[] = [
  {
