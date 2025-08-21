@@ -1,9 +1,9 @@
-import AcessoCard from "../../../components/Cards/AcessoCard";
-import { HOME_CARDS } from "../homeCards";
+import AcessoCard from '../../../components/Cards/AcessoCard';
+import { HOME_CARDS } from '../data/homeCards';
 
 export default function AcessosSection() {
   return (
-    <section className="acessos">
+    <section className='flex flex-wrap justify-center p-5 gap-5'>
       {HOME_CARDS.map((c) => (
         <AcessoCard
           key={c.href}
