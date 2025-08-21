@@ -2,8 +2,6 @@ import celular from '../../img/avatares/celular.png';
 import pessoa from '../../img/avatares/pessoa.png';
 import users from '../../img/avatares/users.png';
 
-
-
 export type HomeCard = {
   imgSrc: string;
   imgAlt: string;
@@ -13,7 +11,7 @@ export type HomeCard = {
 };
 
 export const HOME_CARDS: HomeCard[] = [
- {
+  {
     imgSrc: celular,
     imgAlt: 'Ícone de um celular',
     title: 'Auxílio Teleconsulta',

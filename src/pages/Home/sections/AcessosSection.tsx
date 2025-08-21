@@ -1,5 +1,5 @@
-import AcessoCard from "../../../components/Cards/AcessoCard";
-import { HOME_CARDS } from "../homeCards";
+import AcessoCard from '../../../components/Cards/AcessoCard';
+import { HOME_CARDS } from '../homeCards';
 
 export default function AcessosSection() {
   return (

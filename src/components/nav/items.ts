@@ -4,7 +4,7 @@ export interface MenuItem {
   external?: boolean; // true = link externo
 }
 
-export const MAIN_MENU: MenuItem[] = [
+export const HEADER_MENU: MenuItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Auxílio Teleconsulta', href: '/teleconsulta' },
   { label: 'Auxílio Cadastro', href: '/cadastro' },

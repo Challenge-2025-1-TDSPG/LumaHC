@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { MAIN_MENU } from '../nav/items';
+import { HEADER_MENU } from '../nav/items';
 
 const LINK_CLS =
   'inline-block px-4 py-2 bg-navBtn rounded-xl text-clikColor font-bold text-base no-underline ' +
@@ -9,12 +9,10 @@ const LINK_CLS =
 export default function MainMenu() {
   return (
     <ul className='flex justify-center flex-wrap gap-3 py-2.5 list-none m-0'>
-      {MAIN_MENU.map((item) =>
+      {HEADER_MENU.map((item) =>
         item.external ? (
           <li key={item.label}>
-            <a
-              href={item.href} target='_blank' rel='noreferrer' className={LINK_CLS}
-            >
+            <a href={item.href} target='_blank' rel='noreferrer' className={LINK_CLS}>
               {item.label}
             </a>
           </li>
