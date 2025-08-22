@@ -1,14 +1,11 @@
-import MemberCard from './components/MemberCard.tsx';
-import { members } from './data/members.ts';
+import MembersList from "./components/MembemList";
+import { MEMBROS } from "./data/members"; 
 
 export default function Integrantes() {
   return (
     <main>
-      <ul>
-        {members.map((m) => (
-          <MemberCard key={m.rm} m={m} />
-        ))}
-      </ul>
+      <h1 className="sr-only">Integrantes</h1>
+      <MembersList membros={MEMBROS} />
     </main>
   );
 }

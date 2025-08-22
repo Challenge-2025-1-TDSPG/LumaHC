@@ -1,17 +1,12 @@
 import type { Membro } from '../data/members';
-import { GitHub, LinkedIn } from '../../../components/data/imagens';
+import { getSocials } from '../data/normalize';
 import BtnExterno from '../../../components/Botao/BtnExterno';
 
 type Props = { m: Membro };
 
 export default function MemberCard({ m }: Props) {
-  const { nome, rm, img, descricao, linkedin, github } = m;
-  const socials = [
-    linkedin && { href: linkedin, icon: LinkedIn, alt: 'LinkedIn' },
-    github && { href: github, icon: GitHub, alt: 'GitHub' },
-  ].filter(Boolean) as { href: string; icon: string; alt: string }[];
-
-  const iconClass = 'w-9 h-9 transition-transform duration-300 hover:scale-110';
+  const { nome, rm, img, descricao } = m;
+  const socials = getSocials(m);
 
   return (
     <ul className='list-none p-0 mx-auto max-w-[1000px] w-full flex flex-col items-center'>
@@ -19,7 +14,7 @@ export default function MemberCard({ m }: Props) {
         <div className='flex justify-between items-center gap-5 text-left'>
           <img
             src={img}
-            alt={`img de ${nome}`}
+            alt={`Foto de ${nome}`}
             className='w-[140px] h-auto rounded-full object-cover shrink-0'
             loading='lazy'
           />
@@ -36,14 +31,20 @@ export default function MemberCard({ m }: Props) {
                     href={s.href}
                     target='_blank'
                     className='p-0 bg-transparent hover:bg-transparent'
+                    aria-label={s.alt}
                   >
-                    <img src={s.icon} alt={s.alt} className={iconClass} />
+                    <img
+                      src={s.icon}
+                      alt={s.alt}
+                      className='w-9 h-9 transition-transform duration-300 hover:scale-110'
+                    />
                   </BtnExterno>
                 ))}
               </div>
             )}
           </div>
         </div>
+
         <div className='mt-5 text-justify text-[15px] text-[#2B1D1A]'>
           <p className='mb-2.5 text-base font-bold'>{descricao}</p>
         </div>
