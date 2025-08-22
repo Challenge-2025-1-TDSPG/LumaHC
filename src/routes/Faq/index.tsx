@@ -1,5 +1,5 @@
-import { faqData } from '../../data/faqDados';
-import FaqItem from './components/FaqItem';
+import FaqItem from "@/components/faq/FaqItem";
+import { faqDados } from "@/data/faqDados";
 
 export default function Faq() {
   return (
@@ -10,7 +10,7 @@ export default function Faq() {
           Encontre respostas rápidas sobre o uso da plataforma de Saúde Digital.
         </p>
         <div className='mt-5'>
-          {faqData.map((item, idx) => (
+          {faqDados.map((item, idx) => (
             <FaqItem key={idx} item={item} />
           ))}
         </div>

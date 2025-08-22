@@ -1,6 +1,6 @@
-import Intro from './components/Intro';
-import MobileCadastro from './components/MobileCadastro';
-import DeskCadastro from './components/DeskCadastro';
+import DeskCadastro from "@/components/cadastro/DeskCadastro";
+import MobileCadastro from "@/components/cadastro/MobileCadastro";
+import Intro from "@/components/teleconsulta/Intro";
 
 export default function AuxilioCadastro() {
   return (
