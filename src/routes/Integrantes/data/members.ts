@@ -3,13 +3,13 @@ import { Alex, Kelson, Lucas } from '../../../components/data/imagens';
 export type Membro = {
   nome: string;
   rm: string;
-  img: string;
+  img: string;      
   descricao: string;
   linkedin?: string;
   github?: string;
 };
 
-export const members: Membro[] = [
+export const MEMBROS: Membro[] = [
   {
     nome: 'Alexander Dennis Isidro Mamani',
     rm: 'RM 565554',
@@ -38,3 +38,4 @@ export const members: Membro[] = [
       'Gaúcho, 19 anos, estudante de ADS na FIAP. Interesse em IA, web e soluções com impacto real...',
   },
 ];
+
