@@ -1,6 +1,6 @@
-import type { Membro } from '../data/members';
-import { getSocials } from '../data/normalize';
+import { getSocials } from '@/data/normalize';
 import BtnExterno from '../../../components/Botao/BtnExterno';
+import type { Membro } from '@/types/membro';
 
 type Props = { m: Membro };
 

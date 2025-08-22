@@ -1,5 +1,5 @@
-import type { Membro } from './members';
-import { GitHub, LinkedIn } from '../../../components/data/imagens';
+import type { Membro } from "@/types/membro";
+import { GitHub, LinkedIn } from "./imagens";
 
 export function getSocials(m: Membro) {
   const socials = [];
