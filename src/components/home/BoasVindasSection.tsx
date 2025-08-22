@@ -1,4 +1,4 @@
-import logo from '../../../img/logo/lumahc.png';
+import { logo } from "@/data/imagens";
 
 export default function BoasVindasSection() {
   return (

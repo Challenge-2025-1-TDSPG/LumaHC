@@ -1,7 +1,8 @@
-import type { FaqType } from "@/data/faqDados";
+
+import type { FaqDados } from "@/data/faqDados";
 import BtnExterno from "../Botao/BtnExterno";
 
-type Props = { item: FaqType };
+type Props = { item: FaqDados };
 
 export default function FaqItem({ item }: Props) {
   return (
