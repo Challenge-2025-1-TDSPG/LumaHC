@@ -1,4 +1,4 @@
-import { STORE_LINKS, TELE_DESK, TELE_MOBILE } from '@/data/passoAPasso';
+import { STORE_LINKS, TELE_MOBILE } from '@/data/passoAPasso';
 import BtnExterno from '../Botao/BtnExterno';
 import ListaPassos from '../Passos/CarrosselPassos';
 
