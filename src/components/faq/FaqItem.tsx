@@ -13,7 +13,7 @@ export default function FaqItem({ item }: Props) {
           <BtnExterno
             href={item.link}
             target='_blank'
-            className='ml-2 px-2 py-1 text-[10px] bg-[#FFF8E1]'
+            className=' rounded-sm ml-2 px-2 py-1 text-[10px] bg-[#FFF8E1]'
           >
             Teleconsulta
           </BtnExterno>

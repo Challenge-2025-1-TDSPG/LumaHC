@@ -6,51 +6,56 @@ type Props = { item: Contato };
 
 export default function ContatoItem({ item }: Props) {
   return (
-    <div className='contato'>
+    <div className='contato '>
       <ToggleSection title={item.title}>
-        <dl className='space-y-2'>
+        <dl className='space-y-2 '>
           {item.presencial && (
-            <div>
-              <dt className='font-semibold'>Presencial:</dt>
-              <dd>{item.presencial}</dd>
+            <div className="text-center">
+              <dt className="inline font-semibold">Presencial:</dt>
+              <dd className="inline ml-1">{item.presencial}</dd>
             </div>
+
           )}
-          {item.email && (
-            <div>
-              <dt className='font-semibold'>E-mail:</dt>
-              <dd>
-                <BtnExterno href={`mailto:${item.email}`} target='_blank'>
-                  {item.email}
-                </BtnExterno>
-              </dd>
-            </div>
-          )}
-          {item.tel && (
-            <div>
-              <dt className='font-semibold'>E-mail:</dt>
-              <dd>
-                <BtnExterno href={`mailto:${item.tel}`} target='_blank'>
-                  {item.tel}
-                </BtnExterno>
-              </dd>
-            </div>
-          )}
-          {item.funcionamento && (
-            <div>
-              <dt className='font-semibold'>Funcionamento:</dt>
-              <dd>{item.funcionamento}</dd>
-            </div>
-          )}
-          {item.linkExterno && (
-            <div>
-              <dt className='sr-only'>Link externo</dt>
-              <dd>
-                <BtnExterno href={item.linkExterno.href} target='_blank'>
-                  {item.linkExterno.rotulo}
-                </BtnExterno>
-              </dd>
-            </div>
-          )}
+{item.email && (
+  <div className="text-center border-t border-borderColor pt-2 mt-2">
+    <dt className="inline font-semibold">E-mail:</dt>
+    <dd className="inline ml-1">
+      <BtnExterno href={`mailto:${item.email}`} target="_blank">
+        {item.email}
+      </BtnExterno>
+    </dd>
+  </div>
+)}
+
+{item.tel && (
+  <div className="text-center border-t border-borderColor pt-2 mt-2">
+    <dt className="inline font-semibold">Telefone:</dt>
+    <dd className="inline ml-1">
+      <BtnExterno href={`tel:${item.tel}`} target="_blank">
+        {item.tel}
+      </BtnExterno>
+    </dd>
+  </div>
+)}
+
+{item.funcionamento && (
+  <div className="text-center border-t border-borderColor pt-2 mt-2">
+    <dt className="inline font-semibold">Funcionamento:</dt>
+    <dd className="inline ml-1">{item.funcionamento}</dd>
+  </div>
+)}
+
+{item.linkExterno && (
+  <div className="text-center border-t border-borderColor pt-2 mt-2">
+    <dt className="sr-only">Link externo</dt>
+    <dd className="inline">
+      <BtnExterno href={item.linkExterno.href} target="_blank">
+        {item.linkExterno.rotulo}
+      </BtnExterno>
+    </dd>
+  </div>
+)}
+
         </dl>
       </ToggleSection>
     </div>

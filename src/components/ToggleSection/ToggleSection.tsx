@@ -17,7 +17,7 @@ export default function ToggleSection({ title, children }: Props) {
         {title}
       </h3>
       {open && (
-        <div className='force:rounded-b-[12px] py-2.5 px-3.5 bg-[#FFF8E1] border-t border-borderColor text-fontTertiary text-base text-center '>
+        <div className='rounded-b-[12px]  bg-[#FFF8E1] border-t border-borderColor text-fontTertiary text-base text-center '>
           {children}
         </div>
       )}
