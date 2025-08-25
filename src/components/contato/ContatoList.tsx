@@ -5,7 +5,7 @@ export default function ContatoList() {
   return (
     <div className='contato-section'>
       {contatos.map((c, idx) => (
-        <ContatoItem key={`${c.titulo}-${idx}`} item={c} />
+        <ContatoItem key={`${c.title}-${idx}`} item={c} />
       ))}
     </div>
   );

@@ -4,7 +4,7 @@ import CarrosselBase from '../Carrossel/CarrosselBase';
 
 export interface CarrosselIntegrantesProps {
   membros: Membro[];
-  titulo?: string;
+  title?: string;
   autoMs?: number; //* 0 desativa autoplay
   mostrarControles?: boolean; //* mostrar botões ‹ ›
   mostrarIndicadores?: boolean; //* bolinhas
@@ -13,7 +13,7 @@ export interface CarrosselIntegrantesProps {
 
 export default function CarrosselIntegrantes({
   membros,
-  titulo,
+  title,
   autoMs = 8000,
   mostrarControles = true,
   mostrarIndicadores = true,
@@ -22,8 +22,8 @@ export default function CarrosselIntegrantes({
   if (!membros.length) return null;
 
   return (
-    <section aria-label={titulo} className={className}>
-      {titulo && <h2>{titulo}</h2>}
+    <section aria-label={title} className={className}>
+      {title && <h2>{title}</h2>}
 
       <CarrosselBase
         total={membros.length}

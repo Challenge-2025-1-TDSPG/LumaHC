@@ -7,7 +7,7 @@ type Props = { item: Contato };
 export default function ContatoItem({ item }: Props) {
   return (
     <div className='contato'>
-      <ToggleSection title={item.titulo}>
+      <ToggleSection title={item.title}>
         <dl className='space-y-2'>
           {item.presencial && (
             <div>

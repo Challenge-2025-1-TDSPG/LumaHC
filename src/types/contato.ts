@@ -1,5 +1,5 @@
 export type Contato = {
-  titulo: string;
+  title: string;
   presencial?: string;
   email?: string;
   tel?: string;

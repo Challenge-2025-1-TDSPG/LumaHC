@@ -15,7 +15,7 @@ export default function DeskCadastro() {
       </div>
 
       <ListaPassos
-        titulo='Como fazer o cadastro no navegador'
+        title='Como fazer o cadastro no navegador'
         passos={CADASTRO_DESK}
         autoMs={8000}
         className='lista-passos-desk' //! hook p/ Tailwind

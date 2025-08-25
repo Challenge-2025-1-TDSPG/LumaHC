@@ -14,7 +14,7 @@ export default function MobileTele() {
         </p>
         <BtnStore />
       </div>
-      <CarrosselPassos titulo='Como usar no App' passos={TELE_MOBILE} autoMs={8000} />
+      <CarrosselPassos title='Como usar no App' passos={TELE_MOBILE} autoMs={8000} />
     </section>
   );
 }

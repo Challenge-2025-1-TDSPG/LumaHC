@@ -4,21 +4,17 @@ import CarrosselBase from '../Carrossel/CarrosselBase';
 
 export interface ListaPassosCarrosselProps {
   passos: Passo[];
-  titulo?: string;
+  title?: string;
   autoMs?: number;
   className?: string;
 }
 
-export default function CarrosselPassos({
-  passos,
-  titulo,
-  className,
-}: ListaPassosCarrosselProps) {
+export default function CarrosselPassos({ passos, title, className }: ListaPassosCarrosselProps) {
   if (!passos.length) return null;
 
   return (
-    <section aria-label={titulo} className={className}>
-      {titulo && <h2>{titulo}</h2>}
+    <section aria-label={title} className={className}>
+      {title && <h2>{title}</h2>}
 
       <CarrosselBase
         total={passos.length}

@@ -13,7 +13,7 @@ export default function DeskTele() {
         </BtnExterno>
       </div>
 
-      <ListaPassos titulo='Como usar no Navegador' passos={TELE_DESK} autoMs={8000} />
+      <ListaPassos title='Como usar no Navegador' passos={TELE_DESK} autoMs={8000} />
     </section>
   );
 }

@@ -25,7 +25,7 @@ import {
   permissaoCamera,
   opcoesCamera,
   finalTeleconsulta,
-} from '@data/imagens'
+} from '@data/imagens';
 import type { Passo } from '../types/passo';
 
 export const CADASTRO_MOBILE: Passo[] = [

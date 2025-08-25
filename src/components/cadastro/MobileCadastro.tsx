@@ -14,7 +14,7 @@ export default function MobileCadastro() {
       </div>
 
       <CarrosselPassos
-        titulo='Como usar no App'
+        title='Como usar no App'
         passos={CADASTRO_MOBILE}
         autoMs={8000}
         className='lista-passos-mobile'
