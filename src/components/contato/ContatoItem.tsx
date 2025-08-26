@@ -20,7 +20,7 @@ export default function ContatoItem({ item }: Props) {
   <div className="text-center border-t border-borderColor pt-2 mt-2">
     <dt className="inline font-semibold">E-mail:</dt>
     <dd className="inline ml-1">
-      <BtnExterno href={`mailto:${item.email}`} target="_blank">
+      <BtnExterno href={`mailto:${item.email}`} target="_blank" className='py-1 px-1'>
         {item.email}
       </BtnExterno>
     </dd>
@@ -31,7 +31,7 @@ export default function ContatoItem({ item }: Props) {
   <div className="text-center border-t border-borderColor pt-2 mt-2">
     <dt className="inline font-semibold">Telefone:</dt>
     <dd className="inline ml-1">
-      <BtnExterno href={`tel:${item.tel}`} target="_blank">
+      <BtnExterno href={`tel:${item.tel}`} target="_blank" className='py-1 px-1'>
         {item.tel}
       </BtnExterno>
     </dd>

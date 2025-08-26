@@ -27,27 +27,50 @@ export default function CarrosselBase({
 
   return (
     <div className={`relative w-full ${className ?? ''}`}>
-      <div className='overflow-hidden'>
-        <div className='transition-opacity duration-500 ease-out'>{renderItem(indice)}</div>
+      {/* centraliza tudo */}
+      <div className="flex justify-center">
+        {/* wrapper com a largura do card */}
+        <div className="relative max-w-[700px] w-full">
+          {/* item atual */}
+          <div className="transition-opacity duration-500 ease-out">
+            {renderItem(indice)}
+          </div>
+        </div>
+
+        {/* CONTROLES LATERAIS */}
+        {showControls && total > 1 && (
+          <>
+            <BtnAcao
+              variant="icon"
+              onClick={anterior}
+              aria-label="Anterior"
+              className="absolute left-60 top-1/2 -translate-y-1/2 z-10 
+             w-15 h-15 flex items-center justify-center text-6xl rounded-full bg-backBtn text-white"
+            >
+              <span className="inline-block w-6 h-17 text-center">‹</span>
+            </BtnAcao>
+
+            <BtnAcao
+              variant="icon"
+              onClick={proximo}
+              aria-label="Próximo"
+              className="absolute right-60 top-1/2 -translate-y-1/2 z-10 
+             w-15 h-15 flex items-center justify-center text-6xl rounded-full bg-backBtn text-white"
+            >
+              <span className="inline-block w-5 h-17 text-center">›</span>
+            </BtnAcao>
+
+          </>
+        )}
       </div>
 
-      {showControls && total > 1 && (
-        <div className='mt-4 flex gap-3 justify-center'>
-          <BtnAcao variant='icon' onClick={anterior} aria-label='Anterior'>
-            ‹
-          </BtnAcao>
-          <BtnAcao variant='icon' onClick={proximo} aria-label='Próximo'>
-            ›
-          </BtnAcao>
-        </div>
-      )}
-
+      {/* indicadores (bolinhas) embaixo */}
       {showIndicators && total > 1 && (
-        <div className='mt-3 flex justify-center gap-2'>
+        <div className="mt-3 flex justify-center gap-2">
           {Array.from({ length: total }).map((_, i) => (
             <BtnAcao
               key={i}
-              variant='dot'
+              variant="dot"
               onClick={() => irPara(i)}
               aria-label={`Ir para item ${i + 1}`}
               aria-pressed={i === indice}
@@ -59,3 +82,4 @@ export default function CarrosselBase({
     </div>
   );
 }
+

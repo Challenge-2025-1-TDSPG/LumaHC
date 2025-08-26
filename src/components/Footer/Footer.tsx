@@ -12,7 +12,7 @@ export default function Footer() {
           {FOOTER_MENU.map((item) => (
             <li key={item.href}>
               {item.external ? (
-                <BtnExterno href={item.href} className='text-sm'>
+                <BtnExterno href={item.href} className='text-sm py-2 px-1'>
                   {item.label}
                 </BtnExterno>
               ) : (

@@ -21,8 +21,6 @@ export const HEADER_MENU: NavItem[] = [
 ];
 
 export const FOOTER_MENU: NavItem[] = [
-  { label: 'Contato', href: '/contato' },
-  { label: 'FAQ', href: '/faq' },
   {
     label: 'Site Oficial IMREA',
     href: 'https://redelucymontoro.org.br/site/',

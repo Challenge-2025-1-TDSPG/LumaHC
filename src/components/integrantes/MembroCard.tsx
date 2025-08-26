@@ -10,6 +10,7 @@ export default function MembroCard({ m }: Props) {
   const redes = mapearRedesDoMembro(m);
 
   return (
+  <ul className='flex justify-center'>
     <li className='bg-backSecondary rounded-lg p-6 shadow-[0_4px_12px_rgba(0,0,0,0.1)] w-full max-w-[700px] box-border animate-fade'>
       <div className='flex justify-between items-center gap-5 text-left'>
         <MembroAvatar src={img} alt={`Foto de ${nome}`} className='h-auto' />
@@ -25,5 +26,6 @@ export default function MembroCard({ m }: Props) {
         <p className='mb-2.5 text-base font-bold'>{descricao}</p>
       </div>
     </li>
+  </ul>
   );
 }
