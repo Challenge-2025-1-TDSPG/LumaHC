@@ -3,13 +3,13 @@ import BtnExterno from './BtnExterno';
 
 export default function BtnStore() {
   return (
-    <nav aria-label='Links para download de aplicativos'>
-      <div className='flex gap-4 flex-wrap'>
+    <nav aria-label='Links para download de aplicativos' className='w-full'>
+      <div className='w-full flex flex-wrap items-center justify-center gap-3'>
         <BtnExterno
           href={STORE_LINKS.play.href}
           target='_blank'
           aria-label='Abrir na Play Store'
-          className='flex items-center gap-2 px-4 py-2'
+          className='inline-flex items-center gap-2 px-4 py-2'
         >
           <img
             src={STORE_LINKS.play.icon}
@@ -25,7 +25,7 @@ export default function BtnStore() {
           href={STORE_LINKS.app.href}
           target='_blank'
           aria-label='Abrir na App Store'
-          className='flex items-center gap-2 px-4 py-2'
+          className='inline-flex items-center gap-2 px-4 py-2'
         >
           <img
             src={STORE_LINKS.app.icon}

@@ -26,42 +26,58 @@ export default function CarrosselBase({
   if (!total) return null;
 
   return (
+    // src/components/Carrossel/CarrosselBase.tsx
     <div className={`relative w-full ${className ?? ''}`}>
-      {/* centraliza tudo */}
       <div className='flex justify-center'>
-        {/* wrapper com a largura do card */}
-        <div className='relative max-w-[700px] w-full'>
-          {/* item atual */}
+        {/* ↓ wrapper relativo do card */}
+        <div className='relative w-full max-w-[420px] md:max-w-[480px]'>
+          {/* slide atual */}
           <div className='transition-opacity duration-500 ease-out'>{renderItem(indice)}</div>
+
+          {/* CONTROLES LATERAIS — AGORA aqui dentro */}
+          {showControls && total > 1 && (
+            <>
+              {/* ESQUERDA = VOLTAR */}
+              <BtnAcao
+                variant='icon'
+                onClick={anterior}
+                aria-label='Anterior'
+                className='
+    absolute -left-14 md:-left-20
+    top-1/2 -translate-y-1/2 z-10
+    w-10 h-10 md:w-12 md:h-12
+    flex items-center justify-center rounded-full
+    bg-backBtn text-white
+  '
+              >
+                <span aria-hidden className='text-2xl leading-none'>
+                  ‹
+                </span>
+              </BtnAcao>
+
+              {/* DIREITA = AVANÇAR */}
+              <BtnAcao
+                variant='icon'
+                onClick={proximo}
+                aria-label='Próximo'
+                className='
+    absolute -right-14 md:-right-20
+    top-1/2 -translate-y-1/2 z-10
+    w-10 h-10 md:w-12 md:h-12
+    flex items-center justify-center rounded-full
+    bg-backBtn text-white
+  '
+              >
+                <span aria-hidden className='text-2xl leading-none'>
+                  ›
+                </span>
+              </BtnAcao>
+            </>
+          )}
         </div>
-
-        {/* CONTROLES LATERAIS */}
-        {showControls && total > 1 && (
-          <>
-            <BtnAcao
-              variant='icon'
-              onClick={anterior}
-              aria-label='Anterior'
-              className='absolute left-60 top-1/2 -translate-y-1/2 z-10 
-             w-15 h-15 flex items-center justify-center text-6xl rounded-full bg-backBtn text-white'
-            >
-              <span className='inline-block w-6 h-17 text-center'>‹</span>
-            </BtnAcao>
-
-            <BtnAcao
-              variant='icon'
-              onClick={proximo}
-              aria-label='Próximo'
-              className='absolute right-60 top-1/2 -translate-y-1/2 z-10 
-             w-15 h-15 flex items-center justify-center text-6xl rounded-full bg-backBtn text-white'
-            >
-              <span className='inline-block w-5 h-17 text-center'>›</span>
-            </BtnAcao>
-          </>
-        )}
       </div>
 
-      {/* indicadores (bolinhas) embaixo */}
+      {/* indicadores */}
       {showIndicators && total > 1 && (
         <div className='mt-3 flex justify-center gap-2'>
           {Array.from({ length: total }).map((_, i) => (

@@ -6,7 +6,7 @@ import { mapearRedesDoMembro } from '@/lib/redesSociais';
 type Props = { m: Membro };
 
 export default function MembroCard({ m }: Props) {
-  const { nome, rm, img, descricao } = m;
+  const { nome, rm, turma, img, descricao } = m;
   const redes = mapearRedesDoMembro(m);
 
   return (
@@ -17,7 +17,11 @@ export default function MembroCard({ m }: Props) {
 
           <div className='flex-1 flex flex-col items-end gap-1.5'>
             <h2 className='text-2xl font-bold text-fontPrimary m-0'>{nome}</h2>
-            <span className='text-base text-fontSecondary'>{rm}</span>
+            <span className='inline-flex items-center gap-5 text-base text-fontSecondary'>
+              <span>{rm}</span>
+              {turma && <span>{turma}</span>}
+            </span>
+
             {redes.length > 0 && <MembrosSocial socials={redes} />}
           </div>
         </div>

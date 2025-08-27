@@ -1,6 +1,6 @@
 export type Passo = {
-  title: string;
   img: string;
   alt: string;
+  titulo?: string;
   descricao?: string;
 };

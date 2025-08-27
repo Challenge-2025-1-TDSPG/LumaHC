@@ -1,14 +1,10 @@
+import React from 'react';
+
 type Variant = 'primary' | 'icon' | 'dot';
 
-type BtnAcaoProps = {
-  onClick?: () => void;
-  children?: React.ReactNode;
-  className?: string;
-  type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
+// ✅ herda todas as props nativas de <button> (inclui role, aria-*, id, tabIndex, onClick, etc.)
+type BtnAcaoProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variant;
-  'aria-label'?: string;
-  'aria-pressed'?: boolean;
 };
 
 export default function BtnAcao({
@@ -18,15 +14,14 @@ export default function BtnAcao({
   type = 'button',
   disabled = false,
   variant = 'primary',
-  ...aria
+  ...rest
 }: BtnAcaoProps) {
   const base =
     variant === 'primary'
       ? 'bg-backBtn text-white px-4 py-2 rounded-md font-bold hover:bg-hoverBtn'
       : variant === 'icon'
         ? 'bg-backBtn text-white p-2 rounded-full hover:bg-hoverBtn'
-        : // dot
-          'size-2 rounded-full';
+        : /* dot */ 'size-2 rounded-full'; // se sua versão do Tailwind não tiver "size-*", use "w-2 h-2"
 
   return (
     <button
@@ -34,7 +29,7 @@ export default function BtnAcao({
       onClick={onClick}
       disabled={disabled}
       className={`${base} transition-colors duration-300 disabled:opacity-50 ${className ?? ''}`}
-      {...aria}
+      {...rest} // ⬅️ agora você pode passar role, aria-selected, aria-controls, id, data-*, etc.
     >
       {children}
     </button>

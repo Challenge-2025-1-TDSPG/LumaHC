@@ -12,7 +12,7 @@ export const HOME_CARDS: HomeCard[] = [
   },
   {
     label: 'Auxílio Cadastro',
-    href: '/cadastro',
+    href: '/auxilio/cadastro',
     imgSrc: pessoa,
     imgAlt: 'Imagem de uma Pessoa',
     title: 'Auxílio Cadastro',
