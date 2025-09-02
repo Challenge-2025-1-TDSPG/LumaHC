@@ -1,6 +1,6 @@
 import type { Passo } from '@/types/passo';
-import PassoAPasso from './PassoAPasso';
 import CarrosselBase from '../Carrossel/CarrosselBase';
+import PassoAPasso from './PassoAPasso';
 
 export interface ListaPassosCarrosselProps {
   passos: Passo[];
@@ -14,6 +14,7 @@ export interface ListaPassosCarrosselProps {
 export default function CarrosselPassos({
   passos,
   title,
+  autoMs,
   className,
   contentClassName,
   imgClassName,
@@ -25,6 +26,7 @@ export default function CarrosselPassos({
       {title && <h2>{title}</h2>}
       <CarrosselBase
         total={passos.length}
+        autoMs={autoMs}
         renderItem={(i) => (
           <div className={`w-full ${contentClassName ?? ''}`}>
             <ul className='list-none p-0 m-0'>

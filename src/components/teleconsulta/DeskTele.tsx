@@ -1,6 +1,6 @@
-import BtnExterno from '../Botao/BtnExterno';
-import ListaPassos from '../Passos/CarrosselPassos';
 import { TELE_DESK } from '@/data/passoAPasso';
+import BtnExterno from '../Botao/BtnExterno';
+import CarrosselPassos from '../Passos/CarrosselPassos';
 
 export default function DeskTele() {
   return (
@@ -13,11 +13,11 @@ export default function DeskTele() {
         </BtnExterno>
       </div>
 
-      <ListaPassos
+      <CarrosselPassos
         title='Como usar no Navegador'
         passos={TELE_DESK}
-        autoMs={8000}
-        className='lista-passos-desk' //! hook p/ Tailwind
+        autoMs={0}
+        className='lista-passos-desk'
         contentClassName='max-w-[420px] md:max-w-[520px] mx-auto'
         imgClassName='max-h-[420px]' // controla altura máxima da imagem
       />

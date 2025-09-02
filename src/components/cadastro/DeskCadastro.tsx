@@ -1,6 +1,6 @@
 import { CADASTRO_DESK } from '@/data/passoAPasso';
 import BtnExterno from '../Botao/BtnExterno';
-import ListaPassos from '../Passos/CarrosselPassos';
+import CarrosselPassos from '../Passos/CarrosselPassos';
 
 export default function DeskCadastro() {
   return (
@@ -13,13 +13,13 @@ export default function DeskCadastro() {
         </BtnExterno>
       </div>
 
-      <ListaPassos
+      <CarrosselPassos
         title='Como fazer o cadastro no navegador'
         passos={CADASTRO_DESK}
-        autoMs={8000}
-        className='lista-passos-desk' //! hook p/ Tailwind
+        autoMs={0}
+        className='lista-passos-desk'
         contentClassName='max-w-[420px] md:max-w-[520px] mx-auto'
-        imgClassName='max-h-[420px]' // controla altura máxima da imagem
+        imgClassName='max-h-[420px]'
       />
     </section>
   );

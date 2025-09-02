@@ -1,6 +1,6 @@
 import { CADASTRO_MOBILE } from '@/data/passoAPasso';
-import CarrosselPassos from '../Passos/CarrosselPassos';
 import BtnStore from '../Botao/BtnStore';
+import CarrosselPassos from '../Passos/CarrosselPassos';
 
 export default function MobileCadastro() {
   return (
@@ -16,7 +16,7 @@ export default function MobileCadastro() {
       <CarrosselPassos
         title='Como usar no App'
         passos={CADASTRO_MOBILE}
-        autoMs={8000}
+        autoMs={0}
         className='lista-passos-mobile'
         contentClassName='max-w-[420px] md:max-w-[520px] mx-auto'
         imgClassName='max-h-[420px]' // controla altura máxima da imagem
