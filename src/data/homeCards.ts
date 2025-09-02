@@ -4,7 +4,7 @@ import { celular, pessoa, users } from './imagens';
 export const HOME_CARDS: HomeCard[] = [
   {
     label: 'Auxílio Teleconsulta',
-    href: '/teleconsulta',
+    href: '/auxilio/teleconsulta',
     imgSrc: celular,
     imgAlt: 'Ícone de um celular',
     title: 'Auxílio Teleconsulta',
