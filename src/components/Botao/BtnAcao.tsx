@@ -4,7 +4,11 @@ type Variant = 'primary' | 'icon' | 'dot';
 
 /**
  * Botão genérico para ações na aplicação
- * Suporta variantes: primary (texto), icon (apenas ícone), dot (indicador)
+ *
+ * Variantes disponíveis:
+ * - `primary`: Botão padrão com texto (tabs, formulários)
+ * - `icon`: Botão circular para ícones (controles de carrossel)
+ * - `dot`: Indicador pequeno (pontos de navegação)
  */
 type BtnAcaoProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variant;
@@ -24,7 +28,7 @@ export default function BtnAcao({
       ? 'bg-backBtn text-white px-4 py-2 rounded-md font-bold hover:bg-hoverBtn'
       : variant === 'icon'
         ? 'bg-backBtn text-white p-2 rounded-full hover:bg-hoverBtn'
-        : /* dot */ 'size-2 rounded-full';
+        : /* dot */ 'size-2 rounded-full hover:opacity-80';
 
   return (
     <button
