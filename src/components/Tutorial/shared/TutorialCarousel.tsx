@@ -1,5 +1,5 @@
 import type { Passo } from '@/types/passo';
-import CarrosselBase from '../Carrossel/CarrosselBase';
+import CarrosselBase from '../../Carrossel/CarrosselBase';
 import TutorialStep from './TutorialStep';
 
 export interface TutorialCarouselProps {

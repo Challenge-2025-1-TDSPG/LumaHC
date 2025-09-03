@@ -1,6 +1,6 @@
 import { CADASTRO_MOBILE } from '@/data/passoAPasso';
-import BtnStore from '../Botao/BtnStore';
-import TutorialSection from '../Tutorial/shared/TutorialSection';
+import BtnStore from '../../Botao/BtnStore';
+import TutorialSection from '../shared/TutorialSection';
 
 /**
  * Componente para tutorial de cadastro em dispositivos móveis

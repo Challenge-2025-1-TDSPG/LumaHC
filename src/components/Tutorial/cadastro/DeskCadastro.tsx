@@ -1,5 +1,5 @@
 import { CADASTRO_DESK } from '@/data/passoAPasso';
-import TutorialSection from '../Tutorial/shared/TutorialSection';
+import TutorialSection from '../shared/TutorialSection';
 
 export default function DeskCadastro() {
   return (

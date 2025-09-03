@@ -2,23 +2,35 @@ import { useEffect, useRef } from 'react';
 import { usePassos } from '@/hooks/usePassos';
 import type { CarouselOptions } from '@/types/navigation';
 
+/**
+ * Hook para gerenciar carrosseis com autoplay e navegação
+ * 
+ * @param total - Número total de itens no carrossel
+ * @param options - Opções de configuração (autoplay, loop)
+ * @returns Objeto com estado e funções de controle do carrossel
+ * 
+ * @example
+ * const { indice, proximo, anterior } = useCarrossel(5, { autoMs: 3000 });
+ */
 export function useCarrossel(total: number, { autoMs = 0, loop = true }: CarouselOptions = {}) {
   const { indice, irPara } = usePassos(total, 0);
 
-  //* refs para evitar recriar funções no efeito
+  // Refs para evitar recriar funções no efeito
   const timerRef = useRef<number | null>(null);
   const idxRef = useRef(indice);
+  
   useEffect(() => {
     idxRef.current = indice;
   }, [indice]);
 
   useEffect(() => {
-    //* sempre limpa qualquer timer antigo
+    // Sempre limpa qualquer timer antigo
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
-    //* não cria timer se autoMs<=0 ou total<=1
+    
+    // Não cria timer se autoMs <= 0 ou total <= 1
     if (!autoMs || autoMs <= 0 || total <= 1) return;
 
     timerRef.current = window.setInterval(() => {

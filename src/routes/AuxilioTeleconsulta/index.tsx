@@ -1,7 +1,7 @@
-import MobileTele from '../../components/teleconsulta/MobileTele';
-import DeskTele from '../../components/teleconsulta/DeskTele';
-import IntroTele from '../../components/teleconsulta/Intro';
 import EscolhaModoTabs from '@/components/EscolhaModoTabs/EscolhaModoTabs';
+import DeskTele from '../../components/Tutorial/teleconsulta/DeskTele';
+import IntroTele from '../../components/Tutorial/teleconsulta/Intro';
+import MobileTele from '../../components/Tutorial/teleconsulta/MobileTele';
 
 export default function AuxilioTeleconsulta() {
   return (

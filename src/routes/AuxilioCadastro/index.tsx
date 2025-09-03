@@ -1,8 +1,8 @@
 // src/pages/AuxilioCadastro.tsx
-import IntroCadastro from '@/components/cadastro/IntroCadastro';
-import MobileCadastro from '@/components/cadastro/MobileCadastro';
-import DeskCadastro from '@/components/cadastro/DeskCadastro';
 import EscolhaModoTabs from '@/components/EscolhaModoTabs/EscolhaModoTabs';
+import DeskCadastro from '@/components/Tutorial/cadastro/DeskCadastro';
+import IntroCadastro from '@/components/Tutorial/cadastro/IntroCadastro';
+import MobileCadastro from '@/components/Tutorial/cadastro/MobileCadastro';
 
 export default function AuxilioCadastro() {
   return (
