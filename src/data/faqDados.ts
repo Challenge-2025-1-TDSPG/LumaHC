@@ -1,8 +1,4 @@
-export type FaqDados = {
-  pergunta: string;
-  resposta: string;
-  link?: string;
-};
+import type { FaqDados } from '@/types/faq';
 
 export const faqDados: FaqDados[] = [
   {

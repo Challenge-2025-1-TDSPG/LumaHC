@@ -1,11 +1,11 @@
 import type { Membro } from '@/types/membro';
+import type { CarouselOptions } from '@/types/navigation';
 import MembroCard from './MembroCard';
 import CarrosselBase from '../Carrossel/CarrosselBase';
 
-export interface CarrosselIntegrantesProps {
+export interface CarrosselIntegrantesProps extends CarouselOptions {
   membros: Membro[];
   title?: string;
-  autoMs?: number; //* 0 desativa autoplay
   mostrarControles?: boolean; //* mostrar botões ‹ ›
   mostrarIndicadores?: boolean; //* bolinhas
   className?: string;

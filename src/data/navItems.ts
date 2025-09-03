@@ -1,15 +1,4 @@
-export interface NavItem {
-  label: string;
-  href: string; //* aqui é a rota
-  external?: boolean; //* true = link externo
-}
-
-export interface HomeCard extends NavItem {
-  imgSrc: string;
-  imgAlt: string;
-  title: string;
-  description: string;
-}
+import type { NavItem } from '@/types/navigation';
 
 export const HEADER_MENU: NavItem[] = [
   { label: 'Home', href: '/' },

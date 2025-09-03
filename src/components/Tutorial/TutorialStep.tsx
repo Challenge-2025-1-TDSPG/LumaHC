@@ -1,13 +1,13 @@
 import type { Passo } from '@/types/passo';
 
-// PassoAPasso.tsx (ou o arquivo do PassoView)
-type PassoViewProps = {
-  passo: Passo; // { img: string; alt: string; /* titulo?: string */ }
+// Props para um passo individual do tutorial
+type TutorialStepProps = {
+  passo: Passo; // { img: string; alt: string; titulo?: string; descricao?: string }
   numeracao: number;
   imgClassName?: string;
 };
 
-export default function PassoView({ passo, numeracao, imgClassName }: PassoViewProps) {
+export default function TutorialStep({ passo, numeracao, imgClassName }: TutorialStepProps) {
   const titulo = passo.titulo ?? passo.alt; // sem 'any'
 
   return (

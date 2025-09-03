@@ -1,4 +1,4 @@
-import type { FaqDados } from '@/data/faqDados';
+import type { FaqDados } from '@/types/faq';
 import BtnExterno from '../Botao/BtnExterno';
 import ToggleSection from '../ToggleSection/ToggleSection';
 

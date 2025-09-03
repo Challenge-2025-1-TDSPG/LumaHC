@@ -1,6 +1,6 @@
 import { CADASTRO_MOBILE } from '@/data/passoAPasso';
 import BtnStore from '../Botao/BtnStore';
-import CarrosselPassos from '../Passos/CarrosselPassos';
+import TutorialCarousel from '../Tutorial/TutorialCarousel';
 
 export default function MobileCadastro() {
   return (
@@ -13,7 +13,7 @@ export default function MobileCadastro() {
         </div>
       </div>
 
-      <CarrosselPassos
+      <TutorialCarousel
         title='Como usar no App'
         passos={CADASTRO_MOBILE}
         autoMs={0}

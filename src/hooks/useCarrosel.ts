@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { usePassos } from '@/hooks/usePassos';
+import type { CarouselOptions } from '@/types/navigation';
 
-type Opcoes = { autoMs?: number; loop?: boolean };
-
-export function useCarrossel(total: number, { autoMs = 0, loop = true }: Opcoes = {}) {
+export function useCarrossel(total: number, { autoMs = 0, loop = true }: CarouselOptions = {}) {
   const { indice, irPara } = usePassos(total, 0);
 
   //* refs para evitar recriar funções no efeito

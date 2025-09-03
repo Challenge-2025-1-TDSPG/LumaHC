@@ -1,4 +1,4 @@
-import type { HomeCard } from './navItems';
+import type { HomeCard } from '@/types/navigation';
 import { celular, pessoa, users } from './imagens';
 
 export const HOME_CARDS: HomeCard[] = [
