@@ -1,5 +1,5 @@
 import FaqItem from '@/components/faq/FaqItem';
-import { faqDados } from '@/data/faqDados';
+import { faqData } from '@/data/faqData';
 
 /**
  * Página de perguntas frequentes (FAQ)
@@ -14,7 +14,7 @@ export default function Faq() {
           Encontre respostas rápidas sobre o uso da plataforma de Saúde Digital.
         </p>
         <div className='mt-5'>
-          {faqDados.map((item, idx) => (
+          {faqData.map((item, idx) => (
             <FaqItem key={idx} item={item} />
           ))}
         </div>

@@ -1,5 +1,5 @@
 import type { CarouselOptions } from '@/types/navigation';
-import type { Passo } from '@/types/passo';
+import type { TutorialStepData } from '@/types/tutorialStep';
 import type { ReactNode } from 'react';
 import BtnExterno from '../../Botao/BtnExterno';
 import BtnInterno from '../../Botao/BtnInterno';
@@ -21,7 +21,7 @@ interface TutorialSectionProps {
   /** Título do tutorial/carrossel */
   tutorialTitle: string;
   /** Array de passos do tutorial */
-  passos: Passo[];
+  steps: TutorialStepData[];
   /** Opções do carrossel (autoplay, etc.) */
   carouselOptions?: CarouselOptions;
   /** Classes CSS adicionais para o container */
@@ -43,7 +43,7 @@ interface TutorialSectionProps {
  *   description="Tutorial desktop"
  *   actionButton={{ href: "https://...", label: "Acessar", external: true }}
  *   tutorialTitle="Como usar"
- *   passos={TUTORIAL_STEPS}
+ *   steps={TUTORIAL_STEPS}
  * />
  *
  * @example
@@ -53,7 +53,7 @@ interface TutorialSectionProps {
  *   description="Tutorial mobile"
  *   customActionButton={<BtnStore />}
  *   tutorialTitle="Como usar no App"
- *   passos={MOBILE_STEPS}
+ *   steps={MOBILE_STEPS}
  * />
  */
 
@@ -63,7 +63,7 @@ export default function TutorialSection({
   actionButton,
   customActionButton,
   tutorialTitle,
-  passos,
+  steps,
   carouselOptions = { autoMs: 0 },
   className = '',
   contentClassName = 'max-w-[420px] md:max-w-[520px] mx-auto',
@@ -91,7 +91,7 @@ export default function TutorialSection({
       </div>
       <TutorialCarousel
         title={tutorialTitle}
-        passos={passos}
+        steps={steps}
         autoMs={carouselOptions.autoMs}
         contentClassName={contentClassName}
         imgClassName={imgClassName}

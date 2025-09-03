@@ -1,4 +1,4 @@
-import { user } from '@/data/imagens';
+import { user } from '@/data/imagesData';
 import MainMenu from './MainMenu';
 
 /**

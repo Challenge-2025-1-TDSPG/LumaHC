@@ -1,4 +1,4 @@
-import { TELE_DESK } from '@/data/passoAPasso';
+import { DESKTOP_TELECONSULT_STEPS } from '@/data/tutorialStepsData';
 import TutorialSection from '../shared/TutorialSection';
 
 /**
@@ -16,7 +16,7 @@ export default function DeskTele() {
         external: true,
       }}
       tutorialTitle='Como usar no Navegador'
-      passos={TELE_DESK}
+      steps={DESKTOP_TELECONSULT_STEPS}
       className='lista-passos-desk'
     />
   );

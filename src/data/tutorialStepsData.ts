@@ -1,34 +1,34 @@
 import {
-  instalarPlaystore,
-  acessandoApp,
-  preenchendoCpf,
-  verificacaoDados,
-  dadosContato,
-  confirmacaoNomeMae,
-  confirmacaoAno,
-  cadastroSenha,
-  senhaCadastro,
-  acessoPortal,
-  cadastrando,
-  appstore,
-  playstore,
   abrindoApp,
-  entrandoApp,
-  acessandoMenu,
-  teleconsulta,
-  direcionamentoTermo,
   aceitandoTermo,
-  detalhesTeleconsulta,
-  selecNavegador,
+  acessandoApp,
+  acessandoMenu,
+  acessoPortal,
+  appstore,
   autorizandoAudio,
-  liberandoCamera,
-  permissaoCamera,
-  opcoesCamera,
+  cadastrando,
+  cadastroSenha,
+  confirmacaoAno,
+  confirmacaoNomeMae,
+  dadosContato,
+  detalhesTeleconsulta,
+  direcionamentoTermo,
+  entrandoApp,
   finalTeleconsulta,
-} from '@data/imagens';
-import type { Passo } from '../types/passo';
+  instalarPlaystore,
+  liberandoCamera,
+  opcoesCamera,
+  permissaoCamera,
+  playstore,
+  preenchendoCpf,
+  selecNavegador,
+  senhaCadastro,
+  teleconsulta,
+  verificacaoDados,
+} from '@/data/imagesData';
+import type { TutorialStepData } from '../types/tutorialStep';
 
-export const CADASTRO_MOBILE: Passo[] = [
+export const MOBILE_SIGNUP_STEPS: TutorialStepData[] = [
   { title: 'Baixe o app na loja', img: instalarPlaystore, alt: 'Play Store' },
   { title: 'Clique em Acessar Portal', img: acessandoApp, alt: 'Acessando app' },
   { title: 'Clique em Cadastrar Senha', img: cadastrando, alt: 'Cadastrando no app' },
@@ -41,7 +41,7 @@ export const CADASTRO_MOBILE: Passo[] = [
   { title: 'Cadastro concluído', img: senhaCadastro, alt: 'Sucesso' },
 ];
 
-export const CADASTRO_DESK: Passo[] = [
+export const DESKTOP_SIGNUP_STEPS: TutorialStepData[] = [
   { title: 'Acesse o portal', img: acessoPortal, alt: 'Portal' },
   { title: "Escolha 'Cadastrar Senha'", img: cadastrando, alt: 'Início do cadastro' },
   { title: 'Informe seu CPF', img: preenchendoCpf, alt: 'Campo CPF' },
@@ -52,7 +52,7 @@ export const CADASTRO_DESK: Passo[] = [
   { title: 'Tudo certo!', img: senhaCadastro, alt: 'Sucesso' },
 ];
 
-export const TELE_MOBILE: Passo[] = [
+export const MOBILE_TELECONSULT_STEPS: TutorialStepData[] = [
   { title: 'Abra o App do Portal', img: abrindoApp, alt: 'Tela do app aberto' },
   { title: 'Clique em Acessar Portal', img: acessandoApp, alt: 'Tela inicial do app' },
   { title: 'Preencha CPF e Senha', img: entrandoApp, alt: 'Formulário de login' },
@@ -69,7 +69,7 @@ export const TELE_MOBILE: Passo[] = [
   { title: 'Boa teleconsulta!', img: finalTeleconsulta, alt: 'Consulta em andamento' },
 ];
 
-export const TELE_DESK: Passo[] = [
+export const DESKTOP_TELECONSULT_STEPS: TutorialStepData[] = [
   { title: 'Clique em Acessar Portal', img: acessandoApp, alt: 'Portal do paciente (web)' },
   { title: 'Login com CPF e Senha', img: entrandoApp, alt: 'Formulário de login' },
   { title: 'Menu → Teleconsulta', img: acessandoMenu, alt: 'Menu web' },

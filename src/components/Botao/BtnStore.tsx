@@ -1,4 +1,4 @@
-import { STORE_LINKS } from '@/data/passoAPasso';
+import { STORE_LINKS } from '@/data/tutorialStepsData';
 import BtnExterno from './BtnExterno';
 
 /**

@@ -1,4 +1,4 @@
-import { membros } from '@/data/membrosDados';
+import { members } from '@/data/membersData';
 import CarrosselIntegrantes from '@components/integrantes/CarrosselIntegrantes';
 
 /**
@@ -8,7 +8,7 @@ import CarrosselIntegrantes from '@components/integrantes/CarrosselIntegrantes';
 export default function Integrantes() {
   return (
     <main className='container mx-auto px-4 py-8'>
-      <CarrosselIntegrantes membros={membros} autoMs={8000} mostrarControles mostrarIndicadores />
+      <CarrosselIntegrantes members={members} autoMs={8000} showControls showIndicators />
     </main>
   );
 }

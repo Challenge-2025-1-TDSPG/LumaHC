@@ -1,8 +1,8 @@
-import type { Contato } from '@/types/contato';
+import type { Contact } from '@/types/contact';
 import BtnExterno from '../Botao/BtnExterno';
 import ToggleSection from '../ToggleSection/ToggleSection';
 
-type Props = { item: Contato };
+type Props = { item: Contact };
 
 /**
  * Item de contato expansível
@@ -13,10 +13,10 @@ export default function ContatoItem({ item }: Props) {
     <div className='contato '>
       <ToggleSection title={item.title}>
         <dl className='space-y-2 '>
-          {item.presencial && (
+          {item.inPerson && (
             <div className='text-center'>
               <dt className='inline font-semibold'>Presencial:</dt>
-              <dd className='inline ml-1'>{item.presencial}</dd>
+              <dd className='inline ml-1'>{item.inPerson}</dd>
             </div>
           )}
           {item.email && (
@@ -41,19 +41,19 @@ export default function ContatoItem({ item }: Props) {
             </div>
           )}
 
-          {item.funcionamento && (
+          {item.schedule && (
             <div className='text-center border-t border-borderColor pt-2 mt-2'>
               <dt className='inline font-semibold'>Funcionamento:</dt>
-              <dd className='inline ml-1'>{item.funcionamento}</dd>
+              <dd className='inline ml-1'>{item.schedule}</dd>
             </div>
           )}
 
-          {item.linkExterno && (
+          {item.externalLink && (
             <div className='text-center border-t border-borderColor pt-2 mt-2'>
               <dt className='sr-only'>Link externo</dt>
               <dd className='inline'>
-                <BtnExterno href={item.linkExterno.href} target='_blank'>
-                  {item.linkExterno.rotulo}
+                <BtnExterno href={item.externalLink.href} target='_blank'>
+                  {item.externalLink.label}
                 </BtnExterno>
               </dd>
             </div>

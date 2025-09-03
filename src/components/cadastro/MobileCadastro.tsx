@@ -1,4 +1,4 @@
-import { CADASTRO_MOBILE } from '@/data/passoAPasso';
+import { MOBILE_SIGNUP_STEPS } from '@/data/tutorialStepsData';
 import BtnStore from '../Botao/BtnStore';
 import TutorialSection from '../Tutorial/shared/TutorialSection';
 
@@ -13,7 +13,7 @@ export default function MobileCadastro() {
       description='Para uma experiência mais completa, recomendamos baixar o Portal do Paciente HC.'
       customActionButton={<BtnStore />}
       tutorialTitle='Como usar no App'
-      passos={CADASTRO_MOBILE}
+      steps={MOBILE_SIGNUP_STEPS}
       className='gap-4 lista-passos-mobile' // Mobile usa gap menor + classe específica
     />
   );

@@ -1,4 +1,4 @@
-import { TELE_MOBILE } from '@/data/passoAPasso';
+import { MOBILE_TELECONSULT_STEPS } from '@/data/tutorialStepsData';
 import BtnStore from '../../Botao/BtnStore';
 import TutorialSection from '../shared/TutorialSection';
 
@@ -13,7 +13,7 @@ export default function MobileTele() {
       description='Para uma experiência mais completa, recomendamos usar o app do Portal do Paciente HC.'
       customActionButton={<BtnStore />}
       tutorialTitle='Como usar no App'
-      passos={TELE_MOBILE}
+      steps={MOBILE_TELECONSULT_STEPS}
       className='gap-4' // Mobile usa gap menor que desktop
     />
   );

@@ -1,4 +1,4 @@
-import { CADASTRO_DESK } from '@/data/passoAPasso';
+import { DESKTOP_SIGNUP_STEPS } from '@/data/tutorialStepsData';
 import TutorialSection from '../Tutorial/shared/TutorialSection';
 
 /**
@@ -16,7 +16,7 @@ export default function DeskCadastro() {
         external: true,
       }}
       tutorialTitle='Como fazer o cadastro no navegador'
-      passos={CADASTRO_DESK}
+      steps={DESKTOP_SIGNUP_STEPS}
       className='lista-passos-desk'
     />
   );

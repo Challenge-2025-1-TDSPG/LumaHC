@@ -1,7 +1,7 @@
 // src/components/Carrossel/CarrosselBase.tsx
 import type { ReactNode } from 'react';
 import BtnAcao from '@components/Botao/BtnAcao';
-import { useCarrossel } from '@/hooks/useCarrosel';
+import { useCarousel } from '@/hooks/useCarousel';
 
 type Props = {
   total: number;
@@ -28,7 +28,7 @@ export default function CarrosselBase({
   showControls = true,
   className,
 }: Props) {
-  const { indice, proximo, anterior, irPara } = useCarrossel(total, { autoMs, loop });
+  const { index, next, previous, goTo } = useCarousel(total, { autoMs, loop });
   if (!total) return null;
 
   return (
@@ -38,7 +38,7 @@ export default function CarrosselBase({
         {/* ↓ wrapper relativo do card */}
         <div className='relative w-full max-w-[420px] md:max-w-[480px]'>
           {/* slide atual */}
-          <div className='transition-opacity duration-500 ease-out'>{renderItem(indice)}</div>
+          <div className='transition-opacity duration-500 ease-out'>{renderItem(index)}</div>
 
           {/* CONTROLES LATERAIS — AGORA aqui dentro */}
           {showControls && total > 1 && (
@@ -46,7 +46,7 @@ export default function CarrosselBase({
               {/* ESQUERDA = VOLTAR */}
               <BtnAcao
                 variant='icon'
-                onClick={anterior}
+                onClick={previous}
                 aria-label='Anterior'
                 className='
     absolute -left-14 md:-left-20
@@ -64,7 +64,7 @@ export default function CarrosselBase({
               {/* DIREITA = AVANÇAR */}
               <BtnAcao
                 variant='icon'
-                onClick={proximo}
+                onClick={next}
                 aria-label='Próximo'
                 className='
     absolute -right-14 md:-right-20
@@ -90,10 +90,10 @@ export default function CarrosselBase({
             <BtnAcao
               key={i}
               variant='dot'
-              onClick={() => irPara(i)}
+              onClick={() => goTo(i)}
               aria-label={`Ir para item ${i + 1}`}
-              aria-pressed={i === indice}
-              className={i === indice ? 'bg-fontPrimary' : 'bg-black/30'}
+              aria-pressed={i === index}
+              className={i === index ? 'bg-fontPrimary' : 'bg-black/30'}
             />
           ))}
         </div>

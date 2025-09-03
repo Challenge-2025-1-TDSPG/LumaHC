@@ -1,4 +1,4 @@
-import { logo } from '@/data/imagens';
+import { logo } from '@/data/imagesData';
 
 /**
  * Seção de boas-vindas da página inicial

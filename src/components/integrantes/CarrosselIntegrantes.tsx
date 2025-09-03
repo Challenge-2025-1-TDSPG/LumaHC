@@ -1,13 +1,13 @@
-import type { Membro } from '@/types/membro';
+import type { Member } from '@/types/member';
 import type { CarouselOptions } from '@/types/navigation';
 import MembroCard from './MembroCard';
 import CarrosselBase from '../Carrossel/CarrosselBase';
 
 export interface CarrosselIntegrantesProps extends CarouselOptions {
-  membros: Membro[];
+  members: Member[];
   title?: string;
-  mostrarControles?: boolean; //* mostrar botões ‹ ›
-  mostrarIndicadores?: boolean; //* bolinhas
+  showControls?: boolean; //* mostrar botões ‹ ›
+  showIndicators?: boolean; //* bolinhas
   className?: string;
 }
 
@@ -17,27 +17,27 @@ export interface CarrosselIntegrantesProps extends CarouselOptions {
  * Renderiza cards de membros com navegação automática e manual
  */
 export default function CarrosselIntegrantes({
-  membros,
+  members,
   title,
   autoMs = 8000,
-  mostrarControles = true,
-  mostrarIndicadores = true,
+  showControls = true,
+  showIndicators = true,
   className,
 }: CarrosselIntegrantesProps) {
-  if (!membros.length) return null;
+  if (!members.length) return null;
 
   return (
     <section aria-label={title} className={className}>
       {title && <h2>{title}</h2>}
 
       <CarrosselBase
-        total={membros.length}
+        total={members.length}
         autoMs={autoMs}
-        showControls={mostrarControles}
-        showIndicators={mostrarIndicadores}
+        showControls={showControls}
+        showIndicators={showIndicators}
         renderItem={(i) => (
           <ul className='list-none p-0 m-0'>
-            <MembroCard m={membros[i]} />
+            <MembroCard m={members[i]} />
           </ul>
         )}
       />

@@ -1,5 +1,5 @@
 import ContatoItem from './ContatoItem';
-import { contatos } from '../../data/contatos';
+import { contacts } from '../../data/contactsData';
 
 /**
  * Lista de contatos da aplicação
@@ -8,7 +8,7 @@ import { contatos } from '../../data/contatos';
 export default function ContatoList() {
   return (
     <div className='contato-section '>
-      {contatos.map((c, idx) => (
+      {contacts.map((c, idx) => (
         <ContatoItem key={`${c.title}-${idx}`} item={c} />
       ))}
     </div>

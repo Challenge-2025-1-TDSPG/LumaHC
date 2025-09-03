@@ -2,11 +2,11 @@
  * Estrutura de dados para itens do FAQ
  * Usado para questões e respostas da página de perguntas frequentes
  */
-export type FaqDados = {
+export type FaqData = {
   /** Pergunta do usuário */
-  pergunta: string;
+  question: string;
   /** Resposta da equipe */
-  resposta: string;
+  answer: string;
   /** Link opcional para mais informações */
   link?: string;
 };

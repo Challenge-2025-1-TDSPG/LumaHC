@@ -1,7 +1,7 @@
-import type { RedeSocial } from '@/types/redeSocial';
+import type { SocialNetwork } from '@/types/socialNetwork';
 import BtnExterno from '@components/Botao/BtnExterno';
 
-type Props = { socials: RedeSocial[] };
+type Props = { socials: SocialNetwork[] };
 
 /**
  * Links para redes sociais de um membro

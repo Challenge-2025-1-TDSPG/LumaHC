@@ -1,8 +1,8 @@
-import type { FaqDados } from '@/types/faq';
+import type { FaqData } from '@/types/faq';
 import BtnExterno from '../Botao/BtnExterno';
 import ToggleSection from '../ToggleSection/ToggleSection';
 
-type Props = { item: FaqDados };
+type Props = { item: FaqData };
 
 /**
  * Item individual do FAQ
@@ -10,9 +10,9 @@ type Props = { item: FaqDados };
  */
 export default function FaqItem({ item }: Props) {
   return (
-    <ToggleSection title={item.pergunta}>
+    <ToggleSection title={item.question}>
       <div>
-        {item.resposta}
+        {item.answer}
         {item.link && (
           <BtnExterno href={item.link} target='_blank' className='py-0.3 px-0.5 text-[12px] ml-3'>
             Teleconsulta

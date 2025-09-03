@@ -1,9 +1,9 @@
-import type { Passo } from '@/types/passo';
+import type { TutorialStepData } from '@/types/tutorialStep';
 import CarrosselBase from '../../Carrossel/CarrosselBase';
 import TutorialStep from './TutorialStep';
 
 export interface TutorialCarouselProps {
-  passos: Passo[];
+  steps: TutorialStepData[];
   title?: string;
   autoMs?: number;
   className?: string;
@@ -17,25 +17,25 @@ export interface TutorialCarouselProps {
  * Cada slide exibe um TutorialStep numerado
  */
 export default function TutorialCarousel({
-  passos,
+  steps,
   title,
   autoMs,
   className,
   contentClassName,
   imgClassName,
 }: TutorialCarouselProps) {
-  if (!passos.length) return null;
+  if (!steps.length) return null;
 
   return (
     <section aria-label={title} className={className}>
       {title && <h2>{title}</h2>}
       <CarrosselBase
-        total={passos.length}
+        total={steps.length}
         autoMs={autoMs}
         renderItem={(i) => (
           <div className={`w-full ${contentClassName ?? ''}`}>
             <ul className='list-none p-0 m-0'>
-              <TutorialStep passo={passos[i]} numeracao={i} imgClassName={imgClassName} />
+              <TutorialStep step={steps[i]} stepNumber={i} imgClassName={imgClassName} />
             </ul>
           </div>
         )}
