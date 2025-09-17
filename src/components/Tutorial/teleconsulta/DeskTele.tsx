@@ -1,4 +1,4 @@
-import { DESKTOP_TELECONSULT_STEPS } from '@/data/tutorialStepsData';
+import { DESKTOP_TELECONSULT_STEPS } from '@/constants/tutorialSteps';
 import TutorialSection from '../shared/TutorialSection';
 
 /**

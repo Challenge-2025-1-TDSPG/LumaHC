@@ -34,7 +34,7 @@ import {
   senhaCadastro,
   teleconsulta,
   verificacaoDados,
-} from '@/data/imagesData';
+} from '@/assets/images';
 import type { TutorialStepData } from '../types/tutorialStep';
 
 export const MOBILE_SIGNUP_STEPS: TutorialStepData[] = [

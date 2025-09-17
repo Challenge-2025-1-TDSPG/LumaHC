@@ -1,4 +1,4 @@
-import { DESKTOP_SIGNUP_STEPS } from '@/data/tutorialStepsData';
+import { DESKTOP_SIGNUP_STEPS } from '@/constants/tutorialSteps';
 import TutorialSection from '../shared/TutorialSection';
 
 /**

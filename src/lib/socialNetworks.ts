@@ -1,6 +1,6 @@
+import { GitHub, LinkedIn } from '@/assets/images';
 import type { Member } from '@/types/member';
 import type { SocialNetwork } from '@/types/socialNetwork';
-import { GitHub, LinkedIn } from '../data/imagesData';
 
 /**
  * Mapeia dados de um membro para objetos de redes sociais

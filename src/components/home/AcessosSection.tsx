@@ -1,5 +1,5 @@
+import { HOME_CARDS } from '@/config/homeCards';
 import AcessoCard from '../Cards/AcessoCard';
-import { HOME_CARDS } from '../../data/homeCardsData';
 
 /**
  * Seção de acessos rápidos da página inicial

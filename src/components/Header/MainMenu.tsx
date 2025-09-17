@@ -1,6 +1,6 @@
+import { HEADER_MENU } from '@/config/navigation';
 import BtnExterno from '../Botao/BtnExterno';
 import BtnNav from '../Botao/BtnNav';
-import { HEADER_MENU } from '../../data/navigationData';
 
 /**
  * Menu principal de navegação

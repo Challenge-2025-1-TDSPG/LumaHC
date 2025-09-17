@@ -1,4 +1,4 @@
-import { MOBILE_TELECONSULT_STEPS } from '@/data/tutorialStepsData';
+import { MOBILE_TELECONSULT_STEPS } from '@/constants/tutorialSteps';
 import BtnStore from '../../Botao/BtnStore';
 import TutorialSection from '../shared/TutorialSection';
 
