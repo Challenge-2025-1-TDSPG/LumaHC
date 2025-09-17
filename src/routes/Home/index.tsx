@@ -1,5 +1,5 @@
-import AcessosSection from '@/components/home/AcessosSection';
-import BoasVindasSection from '@/components/home/BoasVindasSection';
+import AcessosSection from '@/components/Home/AcessosSection';
+import BoasVindasSection from '@/components/Home/BoasVindasSection';
 
 /**
  * Página inicial da aplicação

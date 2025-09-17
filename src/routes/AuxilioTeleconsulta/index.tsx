@@ -1,7 +1,7 @@
 import EscolhaModoTabs from '@/components/EscolhaModoTabs/EscolhaModoTabs';
-import DeskTele from '../../components/Tutorial/teleconsulta/DeskTele';
-import IntroTele from '../../components/Tutorial/teleconsulta/IntroTele';
-import MobileTele from '../../components/Tutorial/teleconsulta/MobileTele';
+import DeskTele from '../../components/Tutorial/Teleconsulta/DeskTele';
+import IntroTele from '../../components/Tutorial/Teleconsulta/IntroTele';
+import MobileTele from '../../components/Tutorial/Teleconsulta/MobileTele';
 
 /**
  * Página de auxílio à teleconsulta

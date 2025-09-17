@@ -1,4 +1,4 @@
-import FaqItem from '@/components/faq/FaqItem';
+import FaqItem from '@/components/Faq/FaqItem';
 import { faqData } from '@/data/faqData';
 
 /**

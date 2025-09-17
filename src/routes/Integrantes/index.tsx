@@ -1,5 +1,5 @@
 import { members } from '@/data/membersData';
-import CarrosselIntegrantes from '@components/integrantes/CarrosselIntegrantes';
+import CarrosselIntegrantes from '@/components/Integrantes/CarrosselIntegrantes';
 
 /**
  * Página dos integrantes da equipe

@@ -1,8 +1,8 @@
 // src/pages/AuxilioCadastro.tsx
 import EscolhaModoTabs from '@/components/EscolhaModoTabs/EscolhaModoTabs';
-import DeskCadastro from '@/components/Tutorial/cadastro/DeskCadastro';
-import IntroCadastro from '@/components/Tutorial/cadastro/IntroCadastro';
-import MobileCadastro from '@/components/Tutorial/cadastro/MobileCadastro';
+import DeskCadastro from '@/components/Tutorial/Cadastro/DeskCadastro';
+import IntroCadastro from '@/components/Tutorial/Cadastro/IntroCadastro';
+import MobileCadastro from '@/components/Tutorial/Cadastro/MobileCadastro';
 
 /**
  * Página de auxílio ao cadastro
