@@ -10,6 +10,7 @@ import Error from '@routes/Error';
 import Contato from '@routes/Contato';
 import AuxilioCadastro from '@routes/AuxilioCadastro';
 import AuxilioTeleconsulta from '@routes/AuxilioTeleconsulta';
+import Formulario from './routes/Formulario';
 
 /**
  * Configuração das rotas da aplicação
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: '/contato', element: <Contato /> },
       { path: '/auxilio/cadastro', element: <AuxilioCadastro /> },
       { path: '/auxilio/teleconsulta', element: <AuxilioTeleconsulta /> },
+      { path: '/formulario/*', element: <Formulario /> },
     ],
   },
 ]);
