@@ -1,9 +1,7 @@
-import { useState, useRef } from 'react';
-import type { KeyboardEvent } from 'react';
+import type { Modo } from '@/hooks/useTabs';
+import { useTabs } from '@/hooks/useTabs';
 
 import BtnAcao from '@/components/Botao/BtnAcao';
-
-type Modo = 'app' | 'nav';
 
 type EscolhaModoTabsProps = {
   app: React.ReactNode; // conteúdo do painel "App"
@@ -32,42 +30,15 @@ export default function EscolhaModoTabs({
   className,
   unmountInactive = false,
 }: EscolhaModoTabsProps) {
-  const [mode, setMode] = useState<Modo>(defaultMode);
-  const listRef = useRef<HTMLDivElement | null>(null);
-
-  const tabId = (m: Modo) => `${idBase}-tab-${m}`;
-  const panelId = (m: Modo) => `${idBase}-panel-${m}`;
-  const isActive = (m: Modo) => mode === m;
-
-  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    const el = listRef.current;
-    if (!el) return;
-    const tabs = Array.from(el.querySelectorAll<HTMLElement>('[role="tab"]'));
-    const current = document.activeElement as HTMLElement | null;
-    const idx = tabs.findIndex((t) => t === current);
-    if (idx === -1) return;
-
-    const go = (i: number) => {
-      const btn = tabs[i];
-      const nextIsApp = btn?.id.endsWith('-app');
-      setMode(nextIsApp ? 'app' : 'nav');
-      btn?.focus();
-    };
-
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      e.preventDefault();
-      go((idx + 1) % tabs.length);
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      e.preventDefault();
-      go((idx - 1 + tabs.length) % tabs.length);
-    } else if (e.key === 'Home') {
-      e.preventDefault();
-      go(0);
-    } else if (e.key === 'End') {
-      e.preventDefault();
-      go(tabs.length - 1);
-    }
-  };
+  const {
+    // mode,
+    setMode,
+    listRef,
+    tabId,
+    panelId,
+    isActive,
+    onKeyDown,
+  } = useTabs({ defaultMode, idBase });
 
   return (
     <div className={className}>
