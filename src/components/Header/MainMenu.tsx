@@ -2,19 +2,22 @@ import BtnExterno from '../Botao/BtnExterno';
 import BtnNav from '../Botao/BtnNav';
 import { HEADER_MENU } from '../../data/navigationData';
 
-/**
- * Menu principal de navegação
- * Renderiza lista de links internos e externos do cabeçalho
- */
 export default function MainMenu() {
   return (
-    <ul role="menu"className='flex flex-col items-end gap-3 py-2.5 list-none m-0'>
-      {HEADER_MENU.map((item) => (
-        <li key={item.href}>
+    <ul
+      role="menu"
+      className="w-full flex flex-col gap-3 list-none m-0 py-2.5"
+    >
+      {HEADER_MENU.map(item => (
+        <li key={item.href} className="w-full">
           {item.external ? (
-            <BtnExterno href={item.href}>{item.label}</BtnExterno>
+            <BtnExterno href={item.href} className="block w-full text-left">
+              {item.label}
+            </BtnExterno>
           ) : (
-            <BtnNav to={item.href}>{item.label}</BtnNav>
+            <BtnNav to={item.href} className="block w-full text-left">
+              {item.label}
+            </BtnNav>
           )}
         </li>
       ))}
