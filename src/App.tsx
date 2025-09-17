@@ -1,17 +1,20 @@
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 /**
  * Componente principal da aplicação
  * Contém o layout base com header, conteúdo e footer
  */
 export default function App() {
+  const location = useLocation();
+  const hideLayout = location.pathname.startsWith('/formulario');
+
   return (
     <div>
-      <Header />
+      {!hideLayout && <Header />}
       <Outlet />
-      <Footer />
+      {!hideLayout && <Footer />}
     </div>
   );
 }

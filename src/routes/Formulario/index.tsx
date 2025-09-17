@@ -1,5 +1,6 @@
 import EscolhaModoTabs from "@/components/EscolhaModoTabs/EscolhaModoTabs";
 import FormularioCadastro from "@/components/Formulario/FormCadastro";
+import Login from "@/components/Formulario/FormLogin";
 
 export default function Formulario(){
 
@@ -11,7 +12,7 @@ export default function Formulario(){
             labelApp="Preencher Formulário" 
             labelNav="Login"
             app={<FormularioCadastro />}
-            nav={<span>Login</span>}
+            nav={<Login/>}
             className="w-full"
             />
             
