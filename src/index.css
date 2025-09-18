@@ -18,6 +18,13 @@
   --color-borderColor: #f77f00;
   --color-fromColor: #f7941d;
   --color-toColor: #ffcc80;
+
+  /* Breakpoints */
+  --breakpoint-xs: (max-width: 600px);
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1300px;
 }
 @layer base {
   body {
