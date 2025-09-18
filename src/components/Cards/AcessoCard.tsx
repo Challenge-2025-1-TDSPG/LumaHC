@@ -1,5 +1,5 @@
-import BtnInterno from '../Botao/BtnInterno';
-import BtnExterno from '../Botao/BtnExterno';
+import BtnExterno from '../Button/BtnExterno';
+import BtnInterno from '../Button/BtnInterno';
 
 type AcessoCardProps = {
   imgSrc: string;

@@ -1,6 +1,6 @@
-import BtnAcao from '@/components/Botao/BtnAcao';
-import FormField from '@/components/Formulario/FormField';
-import InputField from '@/components/Formulario/InputField';
+import BtnAcao from '@/components/Button/BtnAcao';
+import FormField from '@/components/Form/FormField';
+import InputField from '@/components/Form/InputField';
 import type { CadastroFormData, LoginFormData } from '@/types/form';
 import validators from '@/utils/validators';
 import { useState } from 'react';

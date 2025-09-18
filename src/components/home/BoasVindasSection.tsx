@@ -1,6 +1,5 @@
 import { logo } from '@/assets/images';
-import BtnInterno from '../Botao/BtnInterno';
-
+import BtnInterno from '../Button/BtnInterno';
 
 /**
  * Seção de boas-vindas da página inicial
@@ -17,7 +16,7 @@ export default function BoasVindasSection() {
           Clínicas. Se quiser, você pode preencher um breve formulário para que possamos oferecer um
           suporte ainda mais personalizado. É só clicar no botão abaixo quando estiver pronta!
         </p>
-        <BtnInterno to="/formulario" className="bg-clikColor hover:bg-hoverBtn">
+        <BtnInterno to='/formulario' className='bg-clikColor hover:bg-hoverBtn'>
           Preencher Formulário
         </BtnInterno>
       </div>

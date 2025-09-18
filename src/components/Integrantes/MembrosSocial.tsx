@@ -1,5 +1,5 @@
+import BtnExterno from '@/components/Button/BtnExterno';
 import type { SocialNetwork } from '@/types/socialNetwork';
-import BtnExterno from '@components/Botao/BtnExterno';
 
 type MembrosSocialProps = { socials: SocialNetwork[] };
 

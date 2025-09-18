@@ -1,4 +1,4 @@
-import EscolhaModoTabs from '@/components/EscolhaModoTabs/EscolhaModoTabs';
+import EscolhaModoTabs from '@/components/ChooseModeTabs/ChooseModeTabs';
 import { useEffect } from 'react';
 import DeskTele from '../../components/Tutorial/Teleconsulta/DeskTele';
 import IntroTele from '../../components/Tutorial/Teleconsulta/IntroTele';

@@ -1,5 +1,5 @@
 import type { FaqData } from '@/types/faq';
-import BtnExterno from '../Botao/BtnExterno';
+import BtnExterno from '../Button/BtnExterno';
 import ToggleSection from '../ToggleSection/ToggleSection';
 
 type FaqItemProps = { item: FaqData };

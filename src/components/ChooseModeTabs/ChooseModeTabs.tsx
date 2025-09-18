@@ -1,9 +1,8 @@
-import type { Modo } from '@/hooks/useTabs';
+import BtnAcao from '@/components/Button/BtnAcao';
 import { useTabs } from '@/hooks/useTabs';
+import type { Modo } from '@/types/tabs';
 
-import BtnAcao from '@/components/Botao/BtnAcao';
-
-type EscolhaModoTabsProps = {
+type ChooseModeTabsProps = {
   app: React.ReactNode; // conteúdo do painel "App"
   nav: React.ReactNode; // conteúdo do painel "Navegador"
   labelApp?: string; // rótulo do botão App
@@ -20,29 +19,28 @@ type EscolhaModoTabsProps = {
  * Suporta navegação por teclado e controle de foco
  * Usado nas páginas de tutorial para alternar entre modos
  */
-export default function EscolhaModoTabs({
+export default function ChooseModeTabs({
   app,
   nav,
-  labelApp = 'Usar App',
-  labelNav = 'Usar Navegador',
+  labelApp = 'Use App',
+  labelNav = 'Use Browser',
   defaultMode = 'app',
-  idBase = 'modo',
+  idBase = 'mode',
   className,
   unmountInactive = false,
-}: EscolhaModoTabsProps) {
+}: ChooseModeTabsProps) {
+  // Hook customizado para controle das tabs (acessibilidade e navegação)
   const {
-    // mode,
-    setMode,
-    listRef,
-    tabId,
-    panelId,
-    isActive,
-    onKeyDown,
+    setActiveTab, // Função para trocar a tab ativa
+    listRef, // Ref para o container da lista de tabs
+    tabId, // Função utilitária para gerar id da tab
+    panelId, // Função utilitária para gerar id do painel
+    isActive, // Função para verificar se a tab está ativa
+    onKeyDown, // Handler para navegação por teclado
   } = useTabs({ defaultMode, idBase });
 
   return (
     <div className={className}>
-      {/* TABLIST */}
       <div
         ref={listRef}
         role='tablist'
@@ -50,6 +48,7 @@ export default function EscolhaModoTabs({
         onKeyDown={onKeyDown}
         className='flex flex-wrap justify-center gap-3'
       >
+        {/* Botão da tab App */}
         <BtnAcao
           variant='primary'
           role='tab'
@@ -57,7 +56,7 @@ export default function EscolhaModoTabs({
           aria-selected={isActive('app')}
           aria-controls={panelId('app')}
           tabIndex={isActive('app') ? 0 : -1}
-          onClick={() => setMode('app')}
+          onClick={() => setActiveTab('app')}
           className={`rounded-xl border border-borderColor ${
             isActive('app')
               ? 'bg-backBtn text-white hover:bg-hoverBtn'
@@ -67,6 +66,7 @@ export default function EscolhaModoTabs({
           {labelApp}
         </BtnAcao>
 
+        {/* Botão da tab Navegador */}
         <BtnAcao
           variant='primary'
           role='tab'
@@ -74,7 +74,7 @@ export default function EscolhaModoTabs({
           aria-selected={isActive('nav')}
           aria-controls={panelId('nav')}
           tabIndex={isActive('nav') ? 0 : -1}
-          onClick={() => setMode('nav')}
+          onClick={() => setActiveTab('nav')}
           className={`rounded-xl border border-borderColor ${
             isActive('nav')
               ? 'bg-backBtn text-white hover:bg-hoverBtn'
@@ -85,7 +85,6 @@ export default function EscolhaModoTabs({
         </BtnAcao>
       </div>
 
-      {/* PAINÉIS */}
       {unmountInactive ? (
         <>
           {isActive('app') && (

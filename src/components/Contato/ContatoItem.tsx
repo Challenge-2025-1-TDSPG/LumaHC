@@ -1,5 +1,5 @@
 import type { Contact } from '@/types/contact';
-import BtnExterno from '../Botao/BtnExterno';
+import BtnExterno from '../Button/BtnExterno';
 import ToggleSection from '../ToggleSection/ToggleSection';
 
 type ContatoItemProps = { item: Contact };

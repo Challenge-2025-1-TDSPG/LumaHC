@@ -1,6 +1,6 @@
-import EscolhaModoTabs from '@/components/EscolhaModoTabs/EscolhaModoTabs';
-import FormularioCadastro from '@/components/Formulario/FormCadastro';
-import Login from '@/components/Formulario/FormLogin';
+import EscolhaModoTabs from '@/components/ChooseModeTabs/ChooseModeTabs';
+import FormularioCadastro from '@/components/Form/FormCadastro';
+import Login from '@/components/Form/FormLogin';
 import { useEffect } from 'react';
 
 export default function Formulario() {

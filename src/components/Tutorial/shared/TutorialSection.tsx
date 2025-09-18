@@ -1,8 +1,8 @@
 import type { CarouselOptions } from '@/types/navigation';
 import type { TutorialStepData } from '@/types/tutorialStep';
 import type { ReactNode } from 'react';
-import BtnExterno from '../../Botao/BtnExterno';
-import BtnInterno from '../../Botao/BtnInterno';
+import BtnExterno from '../../Button/BtnExterno';
+import BtnInterno from '../../Button/BtnInterno';
 import TutorialCarousel from './TutorialCarousel';
 
 interface TutorialSectionProps {

@@ -1,5 +1,5 @@
 import { MOBILE_SIGNUP_STEPS } from '@/constants/tutorialSteps';
-import BtnStore from '../../Botao/BtnStore';
+import BtnStore from '../../Button/BtnStore';
 import TutorialSection from '../shared/TutorialSection';
 
 /**

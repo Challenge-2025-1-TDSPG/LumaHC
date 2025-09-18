@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 // src/pages/AuxilioCadastro.tsx
-import EscolhaModoTabs from '@/components/EscolhaModoTabs/EscolhaModoTabs';
+import EscolhaModoTabs from '@/components/ChooseModeTabs/ChooseModeTabs';
 import DeskCadastro from '@/components/Tutorial/Cadastro/DeskCadastro';
 import IntroCadastro from '@/components/Tutorial/Cadastro/IntroCadastro';
 import MobileCadastro from '@/components/Tutorial/Cadastro/MobileCadastro';

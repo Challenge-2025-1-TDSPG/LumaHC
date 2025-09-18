@@ -23,7 +23,6 @@ export interface UseTabsProps {
 import type { KeyboardEvent, RefObject } from 'react';
 
 export interface UseTabsReturn {
-  activeTab: Modo;
   setActiveTab: (m: Modo) => void;
   listRef: RefObject<HTMLDivElement | null>;
   tabId: (mode: Modo) => string;
