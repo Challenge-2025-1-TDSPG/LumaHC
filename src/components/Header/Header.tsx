@@ -13,7 +13,7 @@ export default function Header() {
 
   const submitSearch = () => {
     if (typeof window !== "undefined" && window.innerWidth < 1024 && !menuOpen) {
-      setMenuOpen(true); // abre menu no mobile ao buscar
+      setMenuOpen(true);
     }
     setTimeout(() => {
       menuRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -21,59 +21,39 @@ export default function Header() {
   };
 
   return (
-    // Header sempre por cima, com gradiente e espaçamento responsivo
     <header className="sticky top-0 z-50 w-full bg-gradient-to-b from-fromColor to-toColor">
       <div className="mx-auto w-full max-w-screen-lg px-4 sm:px-5 lg:px-6">
-        {/* Topo: flex estável e alturas responsivas */}
-        <div className="flex items-center justify-between gap-3 h-14 sm:h-16 lg:h-20">
-          {/* Logo (tamanhos válidos do Tailwind) */}
-          <a className="shrink-0" href="/">
+        <div className="flex items-center gap-4 h-14 sm:h-16 lg:h-20">
+          <a className="shrink-0 justify-self-start -ml-2 sm:-ml-3 lg:-ml-4" href="/">
             <img
               src={logo}
               alt="Imagem da logo do LumaHC"
-              className="h-10 w-auto sm:h-12 md:h-14 rounded-full p-[3px] select-none"
+              className="h-10 w-auto sm:h-12 md:h-14 rounded-full p-[2px] select-none"
             />
           </a>
-
-          {/* Ações mobile/tablet (somem no desktop) */}
-          <div
-            className="
-              lg:hidden flex items-center gap-2 sm:gap-3
-              pr-[env(safe-area-inset-right)]
-            "
-          >
-            {/* Buscar */}
+          <div className="hidden lg:flex flex-1 justify-center">
+            <MainMenu filter={query} />
+          </div>
+          <div className="lg:hidden ml-auto flex items-center gap-2 sm:gap-3 pr-[env(safe-area-inset-right)]">
             <button
               type="button"
               aria-label="Buscar"
               aria-expanded={searchOpen}
               aria-controls="search-popover"
               onClick={() => setSearchOpen(v => !v)}
-              className="
-                inline-flex items-center justify-center
-                h-10 w-10 sm:h-10 sm:w-10 md:h-11 md:w-11"
+              className="inline-flex h-10 w-10 md:h-11 md:w-11 items-center justify-center "
             >
-              <BtnSearch /> {/* ícone puro (sem <button> interno) */}
+              <BtnSearch />
             </button>
 
-            {/* Menu */}
-            <button
-              type="button"
-              aria-label="Menu"
-              aria-expanded={menuOpen}
-              aria-controls="primary-navigation"
-              className="
-                inline-flex items-center justify-center
-                h-10 w-10 sm:h-10 sm:w-10 md:h-11 md:w-11"
-            >
-              <BtnMenu open={menuOpen} onClick={() => setMenuOpen(v => !v)} />
-            </button>
+            <BtnMenu
+              open={menuOpen}
+              onClick={() => setMenuOpen(v => !v)}
+            />
           </div>
         </div>
-
-        {/* Barra de busca – aparece no mobile/tablet quando abrir */}
         {searchOpen && (
-          <div id="search-popover" className="mt-2">
+          <div id="search-popover" className="mt-2 lg:hidden">
             <SearchBox
               open
               value={query}
@@ -83,12 +63,10 @@ export default function Header() {
             />
           </div>
         )}
-
-        {/* Menu: mobile (toggle) / desktop (sempre visível) */}
         <div
           id="primary-navigation"
           ref={menuRef}
-          className={`mt-3 ${menuOpen ? "block" : "hidden"} lg:block`}
+          className={`mt-3 ${menuOpen ? "block" : "hidden"} lg:hidden`}
         >
           <MainMenu filter={query} />
         </div>

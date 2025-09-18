@@ -25,25 +25,36 @@ export default function MainMenu({ filter = '' }: Props) {
     );
   }
 
-  return (
-    <ul role="menu" className="w-full max-w-full
-        flex flex-col gap-3 list-none m-0 py-2.5
-        overflow-x-hidden
-        break-words
-        [hyphens:auto]">
-      {items.map(item => (
-        <li key={item.href} className="w-full max-w-full">
-          {item.external ? (
-            <BtnExterno href={item.href} className="block w-full max-w-full text-left truncate">
-              {item.label}
-            </BtnExterno>
-          ) : (
-            <BtnNav to={item.href} className="block w-full max-w-full text-left truncate">
-              {item.label}
-            </BtnNav>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
+return (
+  <ul
+    role="menu"
+    className="
+      w-full max-w-full
+      flex flex-col lg:flex-row 
+      gap-3 lg:gap-8             
+      list-none m-0 py-2.5
+      overflow-x-hidden
+    "
+  >
+    {items.map(item => (
+      <li key={item.href} role="none" className="w-full lg:w-auto">
+        {item.external ? (
+          <BtnExterno
+            href={item.href}
+            className="block w-full lg:w-auto text-left lg:text-center"
+          >
+            {item.label}
+          </BtnExterno>
+        ) : (
+          <BtnNav
+            to={item.href}
+            className="block w-full lg:w-auto text-left lg:text-center"
+          >
+            {item.label}
+          </BtnNav>
+        )}
+      </li>
+    ))}
+  </ul>
+);
 }
