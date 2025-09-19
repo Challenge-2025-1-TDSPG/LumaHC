@@ -1,15 +1,16 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
 import App from '@/App';
-import Home from '@routes/Home';
-import Faq from '@routes/Faq';
-import Integrantes from '@routes/Integrantes';
-import Error from '@routes/Error';
-import Contato from '@routes/Contato';
 import AuxilioCadastro from '@routes/AuxilioCadastro';
 import AuxilioTeleconsulta from '@routes/AuxilioTeleconsulta';
+import Contato from '@routes/Contato';
+import Error from '@routes/Error';
+import Faq from '@routes/Faq';
+import Home from '@routes/Home';
+import Integrantes from '@routes/Integrantes';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './index.css';
+import Agenda from './routes/Schedule';
 import Formulario from './routes/Formulario';
 
 /**
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: '/auxilio/cadastro', element: <AuxilioCadastro /> },
       { path: '/auxilio/teleconsulta', element: <AuxilioTeleconsulta /> },
       { path: '/formulario/*', element: <Formulario /> },
+      { path: '/agenda', element: <Agenda /> },
     ],
   },
 ]);
