@@ -40,9 +40,9 @@ export default function ScheduleComponent() {
   } = useSchedule();
 
   return (
-    <main className='min-h-screen flex flex-col items-center justify-center bg-gray-50 py-8'>
+    <main className='min-h-screen flex flex-col items-center justify-center py-8'>
       {/* Bloco centralizado do schedule */}
-      <section className='bg-backSecondary p-6 rounded-[10px] max-w-full w-full sm:w-[420px] shadow-[0_2px_6px_rgba(255,112,67,0.15)] box-border relative'>
+      <section className='p-6 rounded-[10px] max-w-full w-full sm:w-[420px] shadow-[0_2px_6px_rgba(255,112,67,0.15)] box-border relative'>
         {/* Título */}
         <h1 className='text-fontPrimary text-2xl mb-4 text-center font-bold'>Medical Schedule</h1>
         {/* Navegação do mês */}

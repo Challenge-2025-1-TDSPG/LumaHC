@@ -10,7 +10,7 @@ export default function Schedule() {
     document.title = 'Agenda de Consultas';
   }, []);
   return (
-    <main className='min-h-screen flex flex-col items-center justify-center bg-gray-50'>
+    <main className='min-h-screen flex flex-col items-center justify-center'>
       <ScheduleComponent />
     </main>
   );
