@@ -1,6 +1,6 @@
-import BtnExterno from '../Botao/BtnExterno';
-import BtnNav from '../Botao/BtnNav';
-import { HEADER_MENU } from '../../data/navigationData';
+import BtnExterno from '../Button/BtnExterno';
+import BtnNav from '../Button/BtnNav';
+import { HEADER_MENU } from '../../config/navigation';
 import { useLocation } from 'react-router-dom';
 
 type Props = { filter?: string };
@@ -33,15 +33,15 @@ export default function MainMenu({ filter = '' }: Props) {
   }
 
   return (
-    <ul role="menu" className="w-full flex flex-col lg:flex-row gap-3 lg:gap-15 list-none m-0 py-2.5">
-      {items.map(item => (
-        <li key={item.href} className="w-full lg:w-auto">
+    <ul role='menu' className='w-full flex flex-col gap-3 list-none m-0 py-2.5'>
+      {HEADER_MENU.map((item) => (
+        <li key={item.href} className='w-full'>
           {item.external ? (
-            <BtnExterno href={item.href} className="block w-full lg:w-auto text-left lg:text-center">
+            <BtnExterno href={item.href} className='block w-full text-left'>
               {item.label}
             </BtnExterno>
           ) : (
-            <BtnNav to={item.href} className="block w-full lg:w-auto text-left lg:text-center">
+            <BtnNav to={item.href} className='block w-full text-left'>
               {item.label}
             </BtnNav>
           )}

@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 // src/pages/AuxilioCadastro.tsx
-import EscolhaModoTabs from '@/components/EscolhaModoTabs/EscolhaModoTabs';
-import DeskCadastro from '@/components/Tutorial/cadastro/DeskCadastro';
-import IntroCadastro from '@/components/Tutorial/cadastro/IntroCadastro';
-import MobileCadastro from '@/components/Tutorial/cadastro/MobileCadastro';
+import EscolhaModoTabs from '@/components/ChooseModeTabs/ChooseModeTabs';
+import DeskCadastro from '@/components/Tutorial/Cadastro/DeskCadastro';
+import IntroCadastro from '@/components/Tutorial/Cadastro/IntroCadastro';
+import MobileCadastro from '@/components/Tutorial/Cadastro/MobileCadastro';
 
 /**
  * Página de auxílio ao cadastro
@@ -10,6 +11,10 @@ import MobileCadastro from '@/components/Tutorial/cadastro/MobileCadastro';
  * Inclui introdução e tutoriais específicos para cada plataforma
  */
 export default function AuxilioCadastro() {
+  // Define o título da aba do navegador
+  useEffect(() => {
+    document.title = 'Auxílio ao Cadastro';
+  }, []);
   return (
     <main className='flex flex-col justify-center items-center p-5 gap-5'>
       <IntroCadastro />

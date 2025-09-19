@@ -1,6 +1,6 @@
-import BtnExterno from '../Botao/BtnExterno';
-import BtnNav from '../Botao/BtnNav';
-import { FOOTER_MENU } from '../../data/navigationData';
+import { FOOTER_MENU } from '@/config/navigation';
+import BtnExterno from '../Button/BtnExterno';
+import BtnNav from '../Button/BtnNav';
 
 /**
  * Rodapé da aplicação

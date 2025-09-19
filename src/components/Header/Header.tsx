@@ -1,10 +1,14 @@
 import { useRef, useState } from "react";
-import { logo } from "@/data/imagesData";
+import { logo } from "@/assets/images";
 import MainMenu from "./MainMenu";
-import BtnMenu from "../Botao/BtnMenu";
-import BtnSearch from "../Botao/BtnSearch";
+import BtnMenu from "../Button/BtnMenu";
+import BtnSearch from "../Button/BtnSearch";
 import SearchBox from "./SearchBox";
 
+/**
+ * Componente de cabeçalho da aplicação
+ * Exibe avatar do usuário, saudação e menu principal
+ */
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);

@@ -1,6 +1,6 @@
 // src/components/Carrossel/CarrosselBase.tsx
+import BtnAcao from '@/components/Button/BtnAcao';
 import { useCarousel } from '@/hooks/useCarousel';
-import BtnAcao from '@components/Botao/BtnAcao';
 import type { ReactNode } from 'react';
 
 type CarrosselBaseProps = {

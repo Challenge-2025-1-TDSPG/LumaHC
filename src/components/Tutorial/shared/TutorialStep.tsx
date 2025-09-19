@@ -1,5 +1,5 @@
-import BtnExterno from '@/components/Botao/BtnExterno';
-import BtnInterno from '@/components/Botao/BtnInterno';
+import BtnExterno from '@/components/Button/BtnExterno';
+import BtnInterno from '@/components/Button/BtnInterno';
 import type { TutorialStepData } from '@/types/tutorialStep';
 
 // Props para um passo individual do tutorial

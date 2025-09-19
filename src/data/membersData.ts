@@ -1,5 +1,5 @@
+import { Alex, Kelson, Lucas } from '@/assets/images';
 import type { Member } from '@/types/member';
-import { Alex, Kelson, Lucas } from '@/data/imagesData';
 
 export const members: Member[] = [
   {
