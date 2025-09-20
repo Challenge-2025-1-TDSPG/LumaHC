@@ -33,15 +33,15 @@ export default function MainMenu({ filter = '' }: Props) {
   }
 
   return (
-    <ul role='menu' className='w-full flex flex-col gap-3 list-none m-0 py-2.5'>
-      {HEADER_MENU.map((item) => (
-        <li key={item.href} className='w-full'>
+    <ul role="menu" className="w-full flex flex-col lg:flex-row gap-3 lg:gap-15 list-none m-0 py-2.5">
+      {items.map(item => (
+        <li key={item.href} className="w-full lg:w-auto">
           {item.external ? (
-            <BtnExterno href={item.href} className='block w-full text-left'>
+            <BtnExterno href={item.href} className="block w-full lg:w-auto text-left lg:text-center">
               {item.label}
             </BtnExterno>
           ) : (
-            <BtnNav to={item.href} className='block w-full text-left'>
+            <BtnNav to={item.href} className="block w-full lg:w-auto text-left lg:text-center">
               {item.label}
             </BtnNav>
           )}

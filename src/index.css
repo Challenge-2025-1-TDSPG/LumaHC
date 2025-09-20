@@ -27,6 +27,6 @@
 @layer base {
   html,body, #root {heigth: 100%;}
   #root {
-    @apply flex flex-col min-h-screen font-atkinson font-semibold text-fontTertiary bg-backPrimary;
+    @apply flex flex-col min-h-screen font-inter text-fontTertiary bg-backPrimary;
   }
 }

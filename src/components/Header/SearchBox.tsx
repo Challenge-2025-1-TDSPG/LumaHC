@@ -1,4 +1,4 @@
-import type { SearchBoxProps } from "@/types/SearchBoxProps";
+import type { SearchBoxProps } from "@/types/searchBoxProps";
 import { useEffect, useRef } from "react";
 
 export default function SearchBox({
