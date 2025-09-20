@@ -6,53 +6,108 @@ type ContatoItemProps = { item: Contact };
 
 /**
  * Item de contato expansível
- * Exibe informações de contato como telefone, email e endereço
+ * Responsivo: empilhado no mobile, duas colunas a partir de sm (≥600px)
  */
 export default function ContatoItem({ item }: ContatoItemProps) {
   return (
-    <div className='contato '>
+    <div className="contato">
       <ToggleSection title={item.title}>
-        <dl className='space-y-2 '>
+        <dl
+          className="
+            divide-y divide-borderColor
+            rounded-lg 
+          "
+        >
+          {/* Presencial */}
           {item.inPerson && (
-            <div className='text-center'>
-              <dt className='inline font-semibold'>Presencial:</dt>
-              <dd className='inline ml-1'>{item.inPerson}</dd>
+            <div className="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-[160px_minmax(0,1fr)] gap-2 sm:gap-4">
+              <dt className="font-semibold text-sm sm:text-base text-fontPrimary">
+                Presencial:
+              </dt>
+              <dd className="text-sm sm:text-base text-fontSecondary">
+                {item.inPerson}
+              </dd>
             </div>
           )}
+
+          {/* E-mail */}
           {item.email && (
-            <div className='text-center border-t border-borderColor pt-2 mt-2'>
-              <dt className='inline font-semibold'>E-mail:</dt>
-              <dd className='inline ml-1'>
-                <BtnExterno href={`mailto:${item.email}`} target='_blank' className='py-1 px-1'>
+            <div className="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-[160px_minmax(0,1fr)] gap-2 sm:gap-4">
+              <dt className="font-semibold text-sm sm:text-base text-fontPrimary">
+                E-mail:
+              </dt>
+              <dd className="text-sm sm:text-base">
+                <BtnExterno
+                  href={`mailto:${item.email}`}
+                  target="_blank"
+                  className="
+                    inline-flex w-full sm:w-auto items-center justify-center
+                    px-3 py-1.5 sm:px-4 sm:py-2
+                    text-sm sm:text-base
+                    bg-backBtn hover:bg-hoverBtn rounded-md font-bold
+                    break-words whitespace-normal
+                  "
+                >
                   {item.email}
                 </BtnExterno>
               </dd>
             </div>
           )}
 
+          {/* Telefone */}
           {item.tel && (
-            <div className='text-center border-t border-borderColor pt-2 mt-2'>
-              <dt className='inline font-semibold'>Telefone:</dt>
-              <dd className='inline ml-1'>
-                <BtnExterno href={`tel:${item.tel}`} target='_blank' className='py-1 px-1'>
+            <div className="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-[160px_minmax(0,1fr)] gap-2 sm:gap-4">
+              <dt className="font-semibold text-sm sm:text-base text-fontPrimary">
+                Telefone:
+              </dt>
+              <dd className="text-sm sm:text-base">
+                <BtnExterno
+                  href={`tel:${item.tel}`}
+                  target="_blank"
+                  className="
+                    inline-flex w-full sm:w-auto items-center justify-center
+                    px-3 py-1.5 sm:px-4 sm:py-2
+                    text-sm sm:text-base
+                    bg-backBtn hover:bg-hoverBtn rounded-md font-bold
+                  "
+                >
                   {item.tel}
                 </BtnExterno>
               </dd>
             </div>
           )}
 
+          {/* Funcionamento */}
           {item.schedule && (
-            <div className='text-center border-t border-borderColor pt-2 mt-2'>
-              <dt className='inline font-semibold'>Funcionamento:</dt>
-              <dd className='inline ml-1'>{item.schedule}</dd>
+            <div className="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-[160px_minmax(0,1fr)] gap-2 sm:gap-4">
+              <dt className="font-semibold text-sm sm:text-base text-fontPrimary">
+                Funcionamento:
+              </dt>
+              <dd className="text-sm sm:text-base text-fontSecondary">
+                {item.schedule}
+              </dd>
             </div>
           )}
 
+          {/* Link externo */}
           {item.externalLink && (
-            <div className='text-center border-t border-borderColor pt-2 mt-2'>
-              <dt className='sr-only'>Link externo</dt>
-              <dd className='inline'>
-                <BtnExterno href={item.externalLink.href} target='_blank'>
+            <div className="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-[160px_minmax(0,1fr)] gap-2 sm:gap-4">
+              <dt className="font-semibold text-sm sm:text-base text-fontPrimary">
+                Link:
+              </dt>
+              <dd className="text-sm sm:text-base">
+                <BtnExterno
+                  href={item.externalLink.href}
+                  target="_blank"
+                  className="
+                    inline-flex w-full sm:w-auto items-center justify-center
+                    px-3 py-1.5 sm:px-4 sm:py-2
+                    text-sm sm:text-base
+                    bg-backBtn hover:bg-hoverBtn rounded-md font-bold
+                    break-words whitespace-normal
+                  "
+                  aria-label={item.externalLink.label}
+                >
                   {item.externalLink.label}
                 </BtnExterno>
               </dd>
@@ -63,3 +118,4 @@ export default function ContatoItem({ item }: ContatoItemProps) {
     </div>
   );
 }
+
