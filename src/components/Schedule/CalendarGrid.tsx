@@ -19,10 +19,11 @@ export default function CalendarGrid({
   return (
     <div className='w-full flex flex-col items-center'>
       {/* Month navigation */}
-      <div className='w-full bg-white/80 rounded-3xl shadow-2xl border border-orange-200 p-4 sm:p-8 flex flex-col items-center transition-all'>
-        <div className='flex items-center justify-between w-full mb-6'>
+      <div className='w-full bg-gray-100/80 rounded-3xl border border-orange-200 p-4 sm:p-8 flex flex-col items-center transition-all shadow-none'>
+        {/* Mês destacado dentro do calendário */}
+        <div className='w-full flex justify-center mb-6'>
           <span className='text-2xl font-bold text-orange-700 tracking-wide'>
-            {getMonthName(currentMonth)} {currentYear}
+            {getMonthName(currentMonth)}
           </span>
         </div>
         {/* Cabeçalho dos dias da semana */}
@@ -46,25 +47,34 @@ export default function CalendarGrid({
                 today.getDate() === day &&
                 today.getMonth() === currentMonth &&
                 today.getFullYear() === currentYear;
+              // Verifica se o dia já passou
+              const isPast =
+                day &&
+                new Date(currentYear, currentMonth, day) <
+                  new Date(today.getFullYear(), today.getMonth(), today.getDate());
               return (
                 <div
                   key={`d${i}-${j}`}
-                  className={`h-24 sm:h-32 w-full min-w-[56px] sm:min-w-[72px] max-w-full flex items-center justify-center rounded-xl cursor-pointer select-none transition-all
-                    ${day ? 'bg-white shadow-md hover:bg-orange-100 focus:bg-orange-200 border border-orange-200' : 'bg-transparent'}
-                    ${isToday ? 'border-2 border-orange-600' : ''}
-                    ${hasReminder ? 'ring-2 ring-green-400' : ''}
+                  className={`h-20 sm:h-24 w-full min-w-[56px] sm:min-w-[72px] max-w-full flex items-center justify-center rounded-xl select-none transition-all
+                    ${day ? (isPast ? 'bg-gray-200 text-gray-400 border border-gray-200 cursor-not-allowed' : 'bg-white shadow-md hover:bg-orange-100 focus:bg-orange-200 border border-orange-200 cursor-pointer') : 'bg-transparent'}
+                    ${isToday && !isPast ? 'border-2 border-orange-600' : ''}
+                    ${hasReminder && !isPast ? 'ring-2 ring-green-400' : ''}
                     ${!day ? 'pointer-events-none' : ''}
                   `}
-                  onClick={() => onDayClick(day)}
+                  onClick={() => !isPast && day && onDayClick(day)}
                   aria-label={day ? `Selecionar dia ${day}` : ''}
-                  tabIndex={day ? 0 : -1}
+                  tabIndex={day && !isPast ? 0 : -1}
                   onKeyDown={(e) => {
-                    if (day && (e.key === 'Enter' || e.key === ' ')) onDayClick(day);
+                    if (day && !isPast && (e.key === 'Enter' || e.key === ' ')) onDayClick(day);
                   }}
                   role='button'
                 >
-                  <span className='text-xl font-bold text-orange-700'>{day || ''}</span>
-                  {hasReminder && (
+                  <span
+                    className={`text-xl font-bold ${isPast ? 'text-gray-400' : 'text-orange-700'}`}
+                  >
+                    {day || ''}
+                  </span>
+                  {hasReminder && !isPast && (
                     <span className='ml-1 w-4 h-4 bg-green-400 rounded-full inline-block border-2 border-white shadow' />
                   )}
                 </div>

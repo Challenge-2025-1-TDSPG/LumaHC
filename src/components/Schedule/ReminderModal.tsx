@@ -5,21 +5,21 @@
 import type { ReminderModalProps } from '@/types/schedule';
 import ReminderList from './ReminderList';
 
-export default function ReminderModal(props: ReminderModalProps) {
-  const {
-    show,
-    onClose,
-    selectedDate,
-    editingReminder,
-    remindersOfDay,
-    formTime,
-    setFormTime,
-    formDescription,
-    setFormDescription,
-    onSave,
-    onEdit,
-    onRemove,
-  } = props;
+export default function ReminderModal({
+  show,
+  onClose,
+  selectedDate,
+  editingReminder,
+  remindersOfDay,
+  formTime,
+  setFormTime,
+  formDescription,
+  setFormDescription,
+  onSave,
+  onEdit,
+  onRemove,
+  error,
+}: ReminderModalProps) {
   if (!show) return null;
   return (
     <div className='fixed inset-0 z-50 flex items-center justify-center bg-transparent backdrop-blur-sm'>
@@ -42,6 +42,11 @@ export default function ReminderModal(props: ReminderModalProps) {
         >
           {editingReminder ? 'Editar lembrete' : 'Novo lembrete'}
         </h3>
+        {error && (
+          <div className='w-full mb-4 p-3 rounded-lg bg-red-100 text-red-700 text-center font-semibold border border-red-300'>
+            {error}
+          </div>
+        )}
         <form
           onSubmit={(e) => {
             e.preventDefault();

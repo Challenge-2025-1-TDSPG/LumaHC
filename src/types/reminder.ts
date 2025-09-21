@@ -1,4 +1,12 @@
 /**
+ * Tipo para ação de lembrete (toast)
+ */
+export type ReminderAction = 'add' | 'edit' | 'remove';
+/**
+ * Tipo para função handler de lembrete
+ */
+export type ReminderHandlerFn = (reminder: Reminder) => void;
+/**
  * Tipos globais para lembretes da Agenda
  */
 export type Reminder = {
