@@ -17,8 +17,18 @@ export function useSchedule() {
   const [formTime, setFormTime] = useState('');
   const [formDescription, setFormDescription] = useState('');
 
-  /** Advances to the next month. */
+  /**
+   * Avança para o próximo mês, mas bloqueia se passar de 6 meses à frente da data atual.
+   */
   const nextMonth = () => {
+    // Data limite: 6 meses à frente do mês/ano atual
+    const today = new Date();
+    const limit = new Date(today.getFullYear(), today.getMonth() + 6, 1);
+    const next =
+      currentMonth === 11
+        ? new Date(currentYear + 1, 0, 1)
+        : new Date(currentYear, currentMonth + 1, 1);
+    if (next > limit) return;
     if (currentMonth === 11) {
       setCurrentMonth(0);
       setCurrentYear((y) => y + 1);
@@ -27,8 +37,22 @@ export function useSchedule() {
     }
   };
 
-  /** Goes back to the previous month. */
+  /**
+   * Volta para o mês anterior, mas bloqueia se tentar voltar para antes do mês/ano atual.
+   */
   const prevMonth = () => {
+    const today = new Date();
+    const prev =
+      currentMonth === 0
+        ? new Date(currentYear - 1, 11, 1)
+        : new Date(currentYear, currentMonth - 1, 1);
+    // Bloqueia se o mês anterior for menor que o mês/ano atual
+    if (
+      prev.getFullYear() < today.getFullYear() ||
+      (prev.getFullYear() === today.getFullYear() && prev.getMonth() < today.getMonth())
+    ) {
+      return;
+    }
     if (currentMonth === 0) {
       setCurrentMonth(11);
       setCurrentYear((y) => y - 1);
@@ -37,11 +61,24 @@ export function useSchedule() {
     }
   };
 
-  /** Handles clicking on a calendar day. */
+  /** Handles clicking on a calendar day: apenas seleciona o dia, não abre modal. */
   const handleDayClick = (day: number | null) => {
     if (!day) return;
     const dateStr = formatDate(day, currentMonth, currentYear);
     setSelectedDate(dateStr);
+    setEditingReminder(null);
+    setFormTime('');
+    setFormDescription('');
+    // Não abre mais o modal aqui
+  };
+
+  /** Abre o modal para criar lembrete para o dia selecionado (ou hoje se nenhum selecionado) */
+  const handleAddReminder = () => {
+    let dateStr = selectedDate;
+    if (!dateStr) {
+      dateStr = formatDate(today.getDate(), today.getMonth(), today.getFullYear());
+      setSelectedDate(dateStr);
+    }
     setEditingReminder(null);
     setFormTime('');
     setFormDescription('');
@@ -109,6 +146,7 @@ export function useSchedule() {
     nextMonth,
     prevMonth,
     handleDayClick,
+    handleAddReminder,
     handleSaveReminder,
     handleEditReminder,
     handleRemoveReminder,

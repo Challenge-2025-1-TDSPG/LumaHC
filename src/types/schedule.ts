@@ -23,6 +23,7 @@ export type ReminderModalProps = {
   onSave: (reminder: Reminder) => void;
   onEdit: (reminder: Reminder) => void;
   onRemove: (reminder: Reminder) => void;
+  error?: string | null;
 };
 /**
  * Tipos compartilhados do módulo Schedule/Calendar.
