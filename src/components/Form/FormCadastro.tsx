@@ -2,6 +2,7 @@ import BtnAcao from '@/components/Button/BtnAcao';
 import FormField from '@/components/Form/FormField';
 import InputField from '@/components/Form/InputField';
 import type { CadastroFormData } from '@/types/form';
+import { saveUserToStorage, setLoggedUser } from '@/utils/userStorage';
 import validators from '@/utils/validators';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -35,20 +36,9 @@ export default function FormCadastro() {
   const onSubmit = (data: CadastroFormData) => {
     setErrorMessage('');
     try {
-      // Recupera cadastros existentes do localStorage
-      const cadastrosStr = localStorage.getItem('cadastrosLumaHC');
-      let cadastros: CadastroFormData[] = [];
-      if (cadastrosStr) {
-        try {
-          cadastros = JSON.parse(cadastrosStr);
-        } catch {
-          cadastros = [];
-        }
-      }
-      // Adiciona novo cadastro
-      cadastros.push(data);
-      localStorage.setItem('cadastrosLumaHC', JSON.stringify(cadastros));
-
+      // Salva novo usuário usando utilitário
+      saveUserToStorage(data);
+      setLoggedUser(data.cpf);
       reset();
       navigate('/');
     } catch (error) {

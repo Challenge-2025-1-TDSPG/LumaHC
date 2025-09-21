@@ -166,7 +166,17 @@ export default function ScheduleComponent(): React.JSX.Element {
             <div className='w-full flex justify-center my-6'>
               <button
                 className='flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-xl text-lg shadow transition focus:outline-none focus:ring-2 focus:ring-orange-400'
-                onClick={() => setShowModal(true)}
+                onClick={() => {
+                  const usuarioLogado = localStorage.getItem('usuarioLogado');
+                  if (!usuarioLogado) {
+                    setModalError('Você precisa estar logado para adicionar lembretes!');
+                    showToast('Faça login ou cadastro para adicionar lembretes.', 'error');
+                    setShowModal(false);
+                  } else {
+                    setModalError(null);
+                    setShowModal(true);
+                  }
+                }}
                 aria-label='Adicionar lembrete'
               >
                 <span className='text-2xl font-bold'>+</span> Adicionar Lembrete

@@ -2,6 +2,7 @@ import BtnAcao from '@/components/Button/BtnAcao';
 import FormField from '@/components/Form/FormField';
 import InputField from '@/components/Form/InputField';
 import type { CadastroFormData, LoginFormData } from '@/types/form';
+import { getUsersFromStorage, setLoggedUser } from '@/utils/userStorage';
 import validators from '@/utils/validators';
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -33,22 +34,19 @@ export default function FormLogin() {
   const onSubmit = (data: LoginFormData) => {
     setErrorMessage('');
     try {
-      // Recupera cadastros do localStorage
-      const cadastrosStr = localStorage.getItem('cadastrosLumaHC');
-      if (!cadastrosStr) {
+      // Recupera cadastros usando utilitário
+      const cadastros = getUsersFromStorage();
+      if (!cadastros.length) {
         setErrorMessage('Nenhum usuário cadastrado encontrado.');
         return;
       }
-
-      const cadastros = JSON.parse(cadastrosStr);
-
       // Verifica se existe usuário com CPF e data de nascimento
       const usuarioEncontrado = cadastros.find(
         (cadastro: CadastroFormData) =>
           cadastro.cpf === data.cpf && cadastro.dataNascimento === data.dataNascimento
       );
-
       if (usuarioEncontrado) {
+        setLoggedUser(usuarioEncontrado.cpf);
         reset();
         navigate('/');
       } else {
