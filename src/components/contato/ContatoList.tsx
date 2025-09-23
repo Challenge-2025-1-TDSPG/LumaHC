@@ -1,5 +1,6 @@
-import ContatoItem from './ContatoItem';
+
 import { contacts } from '../../data/contactsData';
+import ContatoItem from './ContatoItem';
 
 /**
  * Lista de contatos da aplicação

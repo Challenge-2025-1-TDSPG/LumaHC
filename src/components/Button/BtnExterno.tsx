@@ -20,7 +20,15 @@ export default function BtnExterno({
       href={href}
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-      className={`bg-backBtn text-white rounded-md font-bold transition-colors duration-300 hover:bg-hoverBtn ${className}`}
+      className={`
+        inline-flex items-center justify-center
+        px-3 py-1.5
+        text-sm sm:text-base
+        bg-backBtn text-white font-bold rounded-md
+        transition-colors duration-300 hover:bg-hoverBtn
+        break-words whitespace-normal     /* <<< permite quebra de linha */
+        ${className}
+      `}
     >
       {children}
     </a>
