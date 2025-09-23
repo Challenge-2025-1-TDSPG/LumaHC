@@ -1,20 +1,22 @@
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 /**
  * Componente principal da aplicação
  * Contém o layout base com header, conteúdo e footer
  */
 export default function App() {
-  const location = useLocation();
-  const hideLayout = location.pathname.startsWith('/formulario');
-
   return (
-    <div>
-      {!hideLayout && <Header />}
-      <Outlet />
-      {!hideLayout && <Footer />}
+    <div className="flex flex-col min-h-screen">
+      <Header />
+
+      <main className="flex-1">
+        <Outlet />
+      </main>
+
+      <Footer />
     </div>
   );
 }
+

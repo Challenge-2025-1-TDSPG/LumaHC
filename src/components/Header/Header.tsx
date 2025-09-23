@@ -1,25 +1,101 @@
-import { user } from '@/assets/images';
-import MainMenu from './MainMenu';
+import { useRef, useState } from "react";
+import { logo } from "@/assets/images";
+import MainMenu from "./MainMenu";
+import BtnMenu from "../Button/BtnMenu";
+import BtnSearch from "../Button/BtnSearch";
+import SearchBox from "./SearchBox";
 
 /**
  * Componente de cabeçalho da aplicação
  * Exibe avatar do usuário, saudação e menu principal
  */
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const submitSearch = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024 && !menuOpen) {
+      setMenuOpen(true);
+    }
+    setTimeout(() => {
+      menuRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  };
+
   return (
-    <header className='relative w-full h-auto bg-gradient-to-b from-fromColor to-toColor py-5 z-[2] '>
-      <nav className='nav-bar'>
-        <div className='flex flex-col items-center mb-4 text-center'>
-          <img
-            src={user}
-            alt='Imagem de um Avatar'
-            className='w-20 h-20 rounded-full p-[3px] mb-2 object-cover shadow-[0_4px_12px_rgba(0,0,0,.5)] '
-          />
-          <h2 className='text-fontTertiary text-x1 font-bold my-1 '>Olá, Usuário!</h2>
-          <p className='text-base text-fontTertiary m-0'>Vamos te ajudar</p>
+<header className="w-full bg-gradient-to-b from-fromColor to-toColor">
+  <div className="mx-auto w-full max-w-screen-xl px-6 sm:px-8 lg:px-10 xl:px-12">
+    {/* linha do header */}
+    <div
+      className="
+        flex items-center justify-between h-14 sm:h-16 lg:h-20
+        lg:grid lg:grid-cols-[auto_1fr_auto] lg:justify-items-center lg:gap-4
+      "
+    >
+      {/* Logo */}
+      <a className="shrink-0 lg:pl-2 xl:pl-4" href="/">
+        <img
+          src={logo}
+          alt="Imagem da logo do LumaHC"
+          className="h-10 w-auto sm:h-12 md:h-14 rounded-full p-[2px] select-none"
+        />
+      </a>
+
+      {/* Menu central */}
+      <div className="hidden lg:flex lg:justify-self-center">
+        <div className="flex flex-nowrap items-center gap-3 whitespace-nowrap">
+          <MainMenu filter={query} />
         </div>
-        <MainMenu />
-      </nav>
-    </header>
+      </div>
+
+      {/* Ações (placeholder em lg para equilibrar) */}
+      <div
+        className="
+          flex items-center gap-2 sm:gap-3 lg:opacity-0 lg:pointer-events-none lg:block
+          pr-[env(safe-area-inset-right)]
+        "
+      >
+        <button
+          type="button"
+          aria-label="Buscar"
+          aria-expanded={searchOpen}
+          aria-controls="search-popover"
+          onClick={() => setSearchOpen(v => !v)}
+          className="inline-flex h-10 w-10 md:h-11 md:w-11 items-center justify-center lg:hidden"
+        >
+          <BtnSearch />
+        </button>
+        <div className="lg:hidden">
+          <BtnMenu open={menuOpen} onClick={() => setMenuOpen(v => !v)} />
+        </div>
+      </div>
+    </div>
+
+    {/* Popover de busca (mobile) */}
+    {searchOpen && (
+      <div id="search-popover" className="mt-2 lg:hidden">
+        <SearchBox
+          open
+          value={query}
+          onChange={setQuery}
+          onSubmit={submitSearch}
+          onClose={() => setSearchOpen(false)}
+        />
+      </div>
+    )}
+
+    {/* Menu colapsado (mobile) */}
+    <div
+      id="primary-navigation"
+      ref={menuRef}
+      className={`mt-3 ${menuOpen ? 'block' : 'hidden'} lg:hidden`}
+    >
+      <MainMenu filter={query} />
+    </div>
+  </div>
+</header>
+
   );
 }

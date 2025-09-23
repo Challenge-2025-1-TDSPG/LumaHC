@@ -1,4 +1,5 @@
-import AcessosSection from '@/components/Home/AcessosSection';
+
+import AcessosSection from '@/components/Home/AcessoSection';
 import BoasVindasSection from '@/components/Home/BoasVindasSection';
 import { useEffect } from 'react';
 

@@ -12,8 +12,8 @@
 - [x] Revisar responsividade em telas muito pequenas (xs) e muito grandes (xl)
 - [x] Garantir contraste de cores suficiente para acessibilidade em todos os componentes
 - [x] Adicionar docstrings em português em todos os componentes e funções utilitárias que ainda não possuem
-- [x] Revisar se todos os componentes exportados têm nomes consistentes com o arquivo
-- [x] Remover qualquer import não utilizado em todos os arquivos
+- [x] Revisar se tdos os componentes exportados têm nomes consistentes com o arquivo
+- [x] Remover qualquer import nãoo utilizado em todos os arquivos
 - [x] Garantir que todos os campos de formulário tenham label associado corretamente
 - [x] Testar navegação apenas por teclado (tab/shift+tab) para garantir acessibilidade
 

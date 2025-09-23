@@ -13,6 +13,7 @@ export const HEADER_MENU: NavItem[] = [
   { label: 'Integrantes', href: '/integrantes' },
   { label: 'Contato', href: '/contato' },
   { label: 'FAQ', href: '/faq' },
+  { label: 'Lembrete Médico', href: '/lembrete' },
 ];
 
 export const FOOTER_MENU: NavItem[] = [

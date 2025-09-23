@@ -1,4 +1,4 @@
-import ContatoList from '@/components/Contato/ContatoList';
+import ContatoList from '@/components/contato/ContatoList';
 import { useEffect } from 'react';
 
 /**

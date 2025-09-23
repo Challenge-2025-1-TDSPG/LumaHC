@@ -39,7 +39,7 @@ export function useTabs({
   // Efeito para detectar mobile/desktop e ajustar o modo automaticamente
   useEffect(() => {
     // Detecta se é mobile (pode ser ajustado conforme necessidade)
-    const isMobile = () => window.innerWidth <= 768;
+    const isMobile = () => window.innerWidth <= 991;
     setActiveTab(isMobile() ? 'app' : 'nav');
   }, []);
   // Ref para o container da lista de tabs (usado para navegação por teclado)
