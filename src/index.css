@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Roboto:wght@100..900&family=Source+Sans+3:wght@200..900&display=swap');
+@import 'tailwindcss';
+@theme {
+  --font-inter: 'Inter', Arial, Helvetica, sans-serif;
+
+  --color-backPrimary: #ffefd8;
+  --color-backSecondary: #fde6c6;
+  --color-backBtn: #f7941d;
+  --color-hoverBtn: #e67e00;
+  --color-navBtn: #ffe0b2;
+  --color-navHoverBtn: #f7941d;
+  --color-fontPrimary: #a84421;
+  --color-fontSecondary: #9f5c32;
+  --color-fontTertiary: #333333;
+  --color-clikColor: #bf360c;
+  --color-borderColor: #f77f00;
+  --color-fromColor: #f7941d;
+  --color-toColor: #ffcc80;
+
+  /* Breakpoints */
+  --breakpoint-xs: (max-width: 600px);
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1300px;
+}
+@layer base {
+  html,body, #root {heigth: 100%;}
+  #root {
+    @apply flex flex-col min-h-screen font-inter text-fontTertiary bg-backPrimary;
+  }
+}
