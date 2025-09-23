@@ -37,14 +37,13 @@ export default function Header() {
   "
 >
 {/* Logo */}
-<a className="shrink-0 lg:pl-2 xl:pl-4" href="/">
-  {/* Wrapper controla o TAMANHO, não a <img> diretamente */}
+<a className="shrink-0 pl-2 lg:pl-0 xl:pl-4" href="/">
   <div
     className="
-      h-14 w-14               
-      sm:h-16 sm:w-16         
-      md:h-18 md:w-18         
-      lg:h-20 lg:w-20         
+      h-12 w-12               
+      sm:h-14 sm:w-14         
+      md:h-16 md:w-16         
+      lg:h-18 lg:w-18         
       xl:h-24 xl:w-24      
       shrink-0
     "
