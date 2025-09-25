@@ -38,13 +38,18 @@ export { default as direcionamentoTermo } from '@/assets/img/passo-a-passo/direc
 
 //* Cadastro
 export { default as cadastrando } from '@/assets/img/passo-a-passo/cadastrando.png';
-export { default as cadastroSenha } from '@/assets/img/passo-a-passo/cadastro-senha.jpg';
-export { default as confirmacaoAno } from '@/assets/img/passo-a-passo/confirmacao-ano.jpg';
-export { default as confirmacaoNomeMae } from '@/assets/img/passo-a-passo/confirmacao-nome-mae.jpg';
-export { default as dadosContato } from '@/assets/img/passo-a-passo/dados-contato.png';
+export { default as cadastroSenha } from '@/assets/img/passo-a-passo/cadastro-senha.svg';
+export { default as confirmacaoAno } from '@/assets/img/passo-a-passo/confirmacao-ano.svg';
+export { default as confirmacaoAnoDesk } from '@/assets/img/passo-a-passo/confirmacao-ano-desk.svg';
+export { default as confirmacaoNomeMae } from '@/assets/img/passo-a-passo/confirmacao-nome-mae.svg';
+export { default as dadosContato } from '@/assets/img/passo-a-passo/dados-contato.svg';
 export { default as preenchendoCpf } from '@/assets/img/passo-a-passo/preenchimento-cpf.jpg';
-export { default as senhaCadastro } from '@/assets/img/passo-a-passo/senha-cadastro.jpg';
-export { default as verificacaoDados } from '@/assets/img/passo-a-passo/verificacao-dados.png';
+export { default as preenchendoCpfDesk } from '@/assets/img/passo-a-passo/preenchimento-cpf-desk.svg';
+export { default as senhaCadastro } from '@/assets/img/passo-a-passo/senha-cadastro.svg';
+export { default as senhaCadastroDesk } from '@/assets/img/passo-a-passo/senha-cadastrada-desk.svg';
+export { default as cadastroSenhaDesk } from '@/assets/img/passo-a-passo/cadastro-senha-desk.svg';
+export { default as verificacaoDados } from '@/assets/img/passo-a-passo/verificacao-dados.svg';
+export { default as verificacaoDadosDesk } from '@/assets/img/passo-a-passo/verificacao-dados-desk.svg';
 
 //* Seleção de navegador / permissões
 export { default as autorizandoAudioDesk } from '@/assets/img/passo-a-passo/autorizando-audio-desk.svg';
