@@ -1,4 +1,4 @@
-import CarrosselIntegrantes from '@/components/Integrantes/CarrosselIntegrantes';
+import CarrosselIntegrantes from '@/components/IntegrantesComponents/CarrosselIntegrantes';
 import { members } from '@/data/membersData';
 import { useEffect } from 'react';
 
