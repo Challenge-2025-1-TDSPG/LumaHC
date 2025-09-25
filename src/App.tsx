@@ -1,3 +1,4 @@
+import AccessibilityMenu from '@/components/AccessibilityMenu/AccessibilityMenu';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import { Outlet } from 'react-router-dom';
@@ -8,15 +9,15 @@ import { Outlet } from 'react-router-dom';
  */
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className='flex flex-col min-h-screen'>
       <Header />
 
-      <main className="flex-1">
+      <main className='flex-1'>
         <Outlet />
       </main>
 
       <Footer />
+      <AccessibilityMenu />
     </div>
   );
 }
-
