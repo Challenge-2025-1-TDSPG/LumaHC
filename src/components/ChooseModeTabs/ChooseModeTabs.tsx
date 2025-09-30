@@ -1,24 +1,20 @@
 import BtnAcao from '@/components/Button/BtnAcao';
 import { useTabs } from '@/hooks/useTabs';
 import type { Modo } from '@/types/tabs';
+import type { ReactNode } from 'react'; // <- IMPORTA O TIPO
 
 type ChooseModeTabsProps = {
-  app: React.ReactNode; // conteúdo do painel "App"
-  nav: React.ReactNode; // conteúdo do painel "Navegador"
-  labelApp?: string; // rótulo do botão App
-  labelNav?: string; // rótulo do botão Navegador
-  defaultMode?: Modo; // modo inicial (default: 'app')
-  idBase?: string; // base para ids/aria (default: 'modo')
-  className?: string; // classes extras no wrapper
-  unmountInactive?: boolean; // se true, desmonta o painel inativo
+  app: ReactNode;                   // (usa ReactNode importado)
+  nav: ReactNode;
+  labelApp?: string;
+  labelNav?: string;
+  defaultMode?: Modo;
+  idBase?: string;
+  className?: string;
+  unmountInactive?: boolean;
+  onChangeMode?: (mode: Modo) => void; // <- tipado aqui
 };
 
-/**
- * Componente de abas para escolha entre App e Navegador
- * Sistema completo de tabs com acessibilidade (WAI-ARIA)
- * Suporta navegação por teclado e controle de foco
- * Usado nas páginas de tutorial para alternar entre modos
- */
 export default function ChooseModeTabs({
   app,
   nav,
@@ -26,37 +22,40 @@ export default function ChooseModeTabs({
   labelNav = 'Use Browser',
   defaultMode = 'app',
   idBase = 'mode',
-  className,
+  className = '',
   unmountInactive = false,
+  onChangeMode, // <- PEGANDO A PROP AQUI
 }: ChooseModeTabsProps) {
-  // Hook customizado para controle das tabs (acessibilidade e navegação)
   const {
-    setActiveTab, // Função para trocar a tab ativa
-    listRef, // Ref para o container da lista de tabs
-    tabId, // Função utilitária para gerar id da tab
-    panelId, // Função utilitária para gerar id do painel
-    isActive, // Função para verificar se a tab está ativa
-    onKeyDown, // Handler para navegação por teclado
+    setActiveTab,
+    listRef,
+    tabId,
+    panelId,
+    isActive,
+    onKeyDown,
   } = useTabs({ defaultMode, idBase });
 
   return (
     <div className={className}>
       <div
         ref={listRef}
-        role='tablist'
-        aria-label='Escolha como quer cadastrar'
+        role="tablist"
+        aria-label="Escolha como quer cadastrar"
         onKeyDown={onKeyDown}
-        className='flex flex-wrap justify-center gap-3'
+        className="flex flex-wrap justify-center gap-3"
       >
-        {/* Botão da tab App */}
+        {/* App */}
         <BtnAcao
-          variant='primary'
-          role='tab'
+          variant="primary"
+          role="tab"
           id={tabId('app')}
           aria-selected={isActive('app')}
           aria-controls={panelId('app')}
           tabIndex={isActive('app') ? 0 : -1}
-          onClick={() => setActiveTab('app')}
+          onClick={() => {
+            setActiveTab('app');
+            onChangeMode?.('app'); // <- usa a prop daqui
+          }}
           className={`rounded-xl border border-borderColor ${
             isActive('app')
               ? 'bg-backBtn text-white hover:bg-hoverBtn'
@@ -66,15 +65,18 @@ export default function ChooseModeTabs({
           {labelApp}
         </BtnAcao>
 
-        {/* Botão da tab Navegador */}
+        {/* Navegador */}
         <BtnAcao
-          variant='primary'
-          role='tab'
+          variant="primary"
+          role="tab"
           id={tabId('nav')}
           aria-selected={isActive('nav')}
           aria-controls={panelId('nav')}
           tabIndex={isActive('nav') ? 0 : -1}
-          onClick={() => setActiveTab('nav')}
+          onClick={() => {
+            setActiveTab('nav');
+            onChangeMode?.('nav');
+          }}
           className={`rounded-xl border border-borderColor ${
             isActive('nav')
               ? 'bg-backBtn text-white hover:bg-hoverBtn'
@@ -90,9 +92,9 @@ export default function ChooseModeTabs({
           {isActive('app') && (
             <section
               id={panelId('app')}
-              role='tabpanel'
+              role="tabpanel"
               aria-labelledby={tabId('app')}
-              className='w-full mt-2'
+              className="w-full mt-2"
             >
               {app}
             </section>
@@ -100,9 +102,9 @@ export default function ChooseModeTabs({
           {isActive('nav') && (
             <section
               id={panelId('nav')}
-              role='tabpanel'
+              role="tabpanel"
               aria-labelledby={tabId('nav')}
-              className='w-full mt-2'
+              className="w-full mt-2"
             >
               {nav}
             </section>
@@ -112,20 +114,20 @@ export default function ChooseModeTabs({
         <>
           <section
             id={panelId('app')}
-            role='tabpanel'
+            role="tabpanel"
             aria-labelledby={tabId('app')}
             hidden={!isActive('app')}
-            className='w-full mt-2'
+            className="w-full mt-2"
           >
             {app}
           </section>
 
           <section
             id={panelId('nav')}
-            role='tabpanel'
+            role="tabpanel"
             aria-labelledby={tabId('nav')}
             hidden={!isActive('nav')}
-            className='w-full mt-2'
+            className="w-full mt-2"
           >
             {nav}
           </section>

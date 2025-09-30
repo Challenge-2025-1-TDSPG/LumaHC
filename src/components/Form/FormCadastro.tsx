@@ -54,7 +54,7 @@ export default function FormCadastro() {
   };
 
   return (
-    <main>
+    <main >
       <h1 className='text-center mb-5 text-fontPrimary text-2xl font-bold '>
         Registre seu Cadastro
       </h1>
@@ -198,12 +198,13 @@ export default function FormCadastro() {
 
       <BtnAcao
         type='button'
-        id='botao-cadastro-limpar'
-        onClick={handleClear}
-        className='w-full mt-[10px] text-lg '
+        id='botao-nao-cadastrar'
+        onClick={() => navigate('/')} // volta para a Home, pode trocar destino
+        className='w-full mt-[10px] text-lg bg-gray-300 text-fontTertiary hover:bg-gray-400'
       >
-        LIMPAR
+        Não quero me cadastrar
       </BtnAcao>
+
 
       {errorMessage && (
         <div

@@ -79,7 +79,7 @@ p-[4.1%] lg:p-[0%] xl:p-[1.5%]
     'lg:h-full lg:w-auto',
     'lg:max-w-[55%]',
     'lg:scale-y-140',
-    'lg:translate-y-40 xl:translate-y-53',
+    'lg:translate-y-40 xl:translate-y-56',
     'lg:object-top',     // <-- cola no topo
     'mx-auto',
     'rounded-[33px] md:rounded-[65px] lg:rounded-[0px]',
