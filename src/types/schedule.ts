@@ -39,6 +39,7 @@ export type CalendarGridProps = {
   currentMonth: number;
   currentYear: number;
   today: Date;
+  selectedDate: string | null;
   reminders: CalendarReminder[];
   onDayClick: (day: number | null) => void;
   getMonthName: (month: number) => string;

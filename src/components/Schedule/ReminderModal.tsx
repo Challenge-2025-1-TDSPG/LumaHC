@@ -50,7 +50,9 @@ export default function ReminderModal({
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            if (!selectedDate) return;
+            if (!selectedDate || !formTime.trim() || !formDescription.trim()) {
+              return;
+            }
             onSave({
               date: selectedDate,
               time: formTime,

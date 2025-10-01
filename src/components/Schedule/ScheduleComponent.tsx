@@ -12,7 +12,6 @@ import React, { useEffect, useState } from 'react';
 import type { ReminderAction, ReminderHandlerFn } from '../../types/reminder';
 import type { ShowToastFn, ToastState } from '../../types/toast';
 import { formatDate, getDaysMatrix, getMonthName } from '../../utils/calendarUtils';
-import { saveReminderToStorage } from '../../utils/reminderStorage';
 import Toast from '../Toast/Toast';
 import CalendarGrid from './CalendarGrid';
 import ReminderModal from './ReminderModal';
@@ -82,7 +81,6 @@ export default function ScheduleComponent(): React.JSX.Element {
   const handleSaveReminderWithAction: ReminderHandlerFn = (reminder) => {
     setModalError(null);
     handleSaveReminder(reminder);
-    saveReminderToStorage(reminder);
     setReminderAction('add');
   };
   /**
@@ -158,17 +156,42 @@ export default function ScheduleComponent(): React.JSX.Element {
               currentMonth={currentMonth}
               currentYear={currentYear}
               today={today}
+              selectedDate={selectedDate}
               reminders={remindersForCalendar}
               onDayClick={handleDayClick}
               getMonthName={getMonthName}
               getDaysMatrix={getDaysMatrix}
               formatDate={(day: number) => formatDate(day, currentMonth, currentYear)}
             />
+            {/* Indicação do dia selecionado */}
+            {selectedDate && (
+              <div className='w-full flex justify-center mt-6 mb-4'>
+                <div className='bg-orange-50 border-2 border-orange-400 rounded-xl px-6 py-3 shadow-md'>
+                  <span className='text-orange-700 font-semibold'>
+                    Dia selecionado:{' '}
+                    {new Date(selectedDate + 'T00:00:00').toLocaleDateString('pt-BR')}
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* Botão de adicionar lembrete */}
-            <div className='w-full flex justify-center my-6'>
+            <div className='w-full flex justify-center mt-0'>
               <button
-                className='flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-xl text-lg shadow transition focus:outline-none focus:ring-2 focus:ring-orange-400'
+                className={`flex items-center gap-2 font-semibold px-6 py-3 rounded-xl text-lg shadow transition focus:outline-none focus:ring-2 ${
+                  selectedDate
+                    ? 'bg-orange-600 hover:bg-orange-700 text-white focus:ring-orange-400'
+                    : 'bg-gray-400 text-gray-600 cursor-not-allowed'
+                }`}
                 onClick={() => {
+                  if (!selectedDate) {
+                    showToast(
+                      'Selecione um dia no calendário para adicionar um lembrete!',
+                      'error'
+                    );
+                    return;
+                  }
+
                   const usuarioLogado = localStorage.getItem('usuarioLogado');
                   if (!usuarioLogado) {
                     setModalError('Você precisa estar logado para adicionar lembretes!');
@@ -179,6 +202,7 @@ export default function ScheduleComponent(): React.JSX.Element {
                     setShowModal(true);
                   }
                 }}
+                disabled={!selectedDate}
                 aria-label='Adicionar lembrete'
               >
                 <span className='text-2xl font-bold'>+</span> Adicionar Lembrete

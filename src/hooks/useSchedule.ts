@@ -1,6 +1,7 @@
 import type { Reminder } from '@/types/reminder';
 import { formatDate } from '@/utils/calendarUtils';
-import { useState } from 'react';
+import { getRemindersFromStorage, setAllRemindersToStorage } from '@/utils/reminderStorage';
+import { useEffect, useState } from 'react';
 
 /**
  * Hook customizado para gerenciar o estado e lógica da Agenda Médica.
@@ -26,6 +27,25 @@ export function useSchedule() {
   const [editingReminder, setEditingReminder] = useState<Reminder | null>(null);
   const [formTime, setFormTime] = useState('');
   const [formDescription, setFormDescription] = useState('');
+
+  /**
+   * Carrega os lembretes salvos no localStorage ao inicializar o componente
+   */
+  useEffect(() => {
+    const storedReminders = getRemindersFromStorage();
+    setReminders(storedReminders);
+  }, []);
+
+  /**
+   * Sincroniza os lembretes com o localStorage sempre que houver mudanças
+   */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAllRemindersToStorage(reminders);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [reminders]);
 
   /**
    * Avança para o próximo mês, mas bloqueia se passar de 6 meses à frente da data atual.
