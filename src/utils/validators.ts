@@ -51,14 +51,17 @@ export function validateCPF(cpf: string): boolean {
  */
 export function formatPhone(phone: string): string {
   const cleanPhone = phone.replace(/\D/g, '');
-  // Limita a 11 dígitos para evitar entrada excessiva
-  const limitedPhone = cleanPhone.slice(0, 11);
+  // Limita a 12 dígitos para incluir telefones fixos como 0800
+  const limitedPhone = cleanPhone.slice(0, 12);
   if (limitedPhone.length < 10) return limitedPhone;
   // Aplica máscara para telefones com 8 ou 9 dígitos no número
   if (limitedPhone.length === 10) {
     return limitedPhone.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
-  } else {
+  } else if (limitedPhone.length === 11) {
     return limitedPhone.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+  } else {
+    // Para 0800 e similares
+    return limitedPhone.replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3');
   }
 }
 
@@ -68,6 +71,7 @@ export function formatPhone(phone: string): string {
  * @returns true se válido, false se inválido
  */
 export function validatePhone(phone: string): boolean {
-  // Remove caracteres não numéricos e verifica o comprimento
-  return phone.replace(/\D/g, '').length >= 10;
+  // Remove caracteres não numéricos e verifica o comprimento (10 a 12 dígitos)
+  const cleanPhone = phone.replace(/\D/g, '');
+  return cleanPhone.length >= 10 && cleanPhone.length <= 12;
 }

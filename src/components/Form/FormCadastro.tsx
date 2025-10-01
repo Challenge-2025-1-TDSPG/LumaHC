@@ -138,6 +138,8 @@ export default function FormCadastro() {
                 value={field.value}
                 onChange={field.onChange}
                 required
+                min='1900-01-01'
+                max={new Date().toISOString().split('T')[0]}
                 isValid={errors.dataNascimento ? false : !!field.value}
                 errorMessage={errors.dataNascimento?.message}
               />
@@ -188,7 +190,7 @@ export default function FormCadastro() {
                 onChange={(v) => field.onChange(formatPhone(v))}
                 placeholder='(11) 91234-5678'
                 required
-                maxLength={15}
+                maxLength={16}
                 isValid={errors.telefone ? false : field.value.length > 0}
                 errorMessage={errors.telefone?.message}
               />

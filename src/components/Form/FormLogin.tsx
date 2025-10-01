@@ -119,6 +119,8 @@ export default function FormLogin() {
                 value={field.value}
                 onChange={field.onChange}
                 required
+                min='1900-01-01'
+                max={new Date().toISOString().split('T')[0]}
                 isValid={errors.dataNascimento ? false : !!field.value}
                 errorMessage={errors.dataNascimento?.message}
               />
