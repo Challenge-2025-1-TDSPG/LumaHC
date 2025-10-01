@@ -101,7 +101,7 @@ export default function FormLogin() {
                 const selectedDate = new Date(value);
                 const today = new Date();
                 const minDate = new Date('1900-01-01');
-                
+
                 if (selectedDate > today) {
                   return 'Data não pode ser futura';
                 }
@@ -109,7 +109,7 @@ export default function FormLogin() {
                   return 'Data muito antiga';
                 }
                 return true;
-              }
+              },
             }}
             render={({ field }) => (
               <InputField
