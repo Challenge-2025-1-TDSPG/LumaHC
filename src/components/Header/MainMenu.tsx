@@ -1,6 +1,6 @@
+import type { MainMenuProps } from '@/types/navigation';
 import { useLocation } from 'react-router-dom';
 import { HEADER_MENU } from '../../config/navigation';
-import type { MainMenuProps } from '@/types/navigation';
 import BtnExterno from '../Button/BtnExterno';
 import BtnNav from '../Button/BtnNav';
 

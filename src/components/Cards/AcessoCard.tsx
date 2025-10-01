@@ -1,6 +1,6 @@
+import type { AcessoCardProps } from '@/types/card';
 import BtnExterno from '../Button/BtnExterno';
 import BtnInterno from '../Button/BtnInterno';
-import type { AcessoCardProps } from '@/types/card';
 
 /**
  * Card de acesso rápido para funcionalidades

@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import type { BtnNavProps } from '@/types/button';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Botão de navegação com estado ativo

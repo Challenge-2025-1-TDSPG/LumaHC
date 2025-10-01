@@ -2,7 +2,7 @@
  * Tipos e interfaces para controle de tabs acessíveis.
  */
 
-import type { ReactNode, KeyboardEvent, RefObject } from 'react';
+import type { KeyboardEvent, ReactNode, RefObject } from 'react';
 
 /**
  * Tipo que representa os modos/tabs disponíveis.

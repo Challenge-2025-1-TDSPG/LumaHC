@@ -14,24 +14,26 @@ import { useEffect } from 'react';
  * <Route path="/auxilio-cadastro" element={<AuxilioCadastro />} />
  */
 export default function AuxilioCadastro() {
-  useEffect(() => { document.title = 'Auxílio ao Cadastro'; }, []);
+  useEffect(() => {
+    document.title = 'Auxílio ao Cadastro';
+  }, []);
 
   return (
     <main
-      aria-label="Conteúdo principal de auxílio ao cadastro"
-      className="w-full overflow-x-clip bg-backPrimary"   // <- aqui
+      aria-label='Conteúdo principal de auxílio ao cadastro'
+      className='w-full overflow-x-clip bg-backPrimary' // <- aqui
     >
       {/* container interno controla largura + padding */}
-      <div className="mx-auto w-full max-w-screen-lg px-5 py-5 flex flex-col items-center gap-5">
+      <div className='mx-auto w-full max-w-screen-lg px-5 py-5 flex flex-col items-center gap-5'>
         <IntroCadastro />
 
         <EscolhaModoTabs
-          defaultMode="app"
-          labelApp="Usar App"
-          labelNav="Usar Navegador"
+          defaultMode='app'
+          labelApp='Usar App'
+          labelNav='Usar Navegador'
           app={<MobileCadastro />}
           nav={<DeskCadastro />}
-          className="w-full"
+          className='w-full'
         />
       </div>
     </main>

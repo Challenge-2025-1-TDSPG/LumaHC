@@ -1,6 +1,5 @@
-import type { NavItem } from './navigation';
-import type { CarouselOptions } from './navigation';
 import type { ReactNode } from 'react';
+import type { CarouselOptions, NavItem } from './navigation';
 
 /**
  * Representa um passo no tutorial step-by-step

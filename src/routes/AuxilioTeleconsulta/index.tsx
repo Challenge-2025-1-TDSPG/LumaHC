@@ -20,21 +20,21 @@ export default function AuxilioTeleconsulta() {
 
   return (
     <main
-      aria-label="Conteúdo principal de auxílio à teleconsulta"
-      className="w-full overflow-x-clip bg-backPrimary"
+      aria-label='Conteúdo principal de auxílio à teleconsulta'
+      className='w-full overflow-x-clip bg-backPrimary'
     >
       {/* Container interno controla largura e padding */}
-      <div className="mx-auto w-full max-w-screen-lg px-5 py-5 flex flex-col items-center gap-5">
+      <div className='mx-auto w-full max-w-screen-lg px-5 py-5 flex flex-col items-center gap-5'>
         <IntroTele />
 
         {/* Tabs para alternar entre tutorial do App e do Navegador */}
         <EscolhaModoTabs
-          defaultMode="app"
-          labelApp="Usar App"
-          labelNav="Usar Navegador"
+          defaultMode='app'
+          labelApp='Usar App'
+          labelNav='Usar Navegador'
           app={<MobileTele />}
           nav={<DeskTele />}
-          className="w-full"
+          className='w-full'
         />
       </div>
     </main>
