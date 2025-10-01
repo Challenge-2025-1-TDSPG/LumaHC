@@ -34,29 +34,29 @@ export default function Formulario() {
 
   return (
     <section
-      aria-label="Conteúdo principal de formulário"
-      className="
+      aria-label='Conteúdo principal de formulário'
+      className='
         containerNarrow w-full min-h-screen
         bg-gradient-to-b from-fromColor to-toColor
         flex justify-center items-start sm:items-center
         py-8 sm:py-12 lg:py-16
-      "
+      '
     >
       <main
-        className="
+        className='
           w-full max-w-[600px] bg-backSecondary mx-auto
           p-4 sm:p-6
           rounded-[10px]
           shadow-[0_6px_20px_rgba(0,0,0,0.08)]
-        "
+        '
       >
         <EscolhaModoTabs
           defaultMode={defaultMode}
-          labelApp="Cadastro"
-          labelNav="Login"
+          labelApp='Cadastro'
+          labelNav='Login'
           app={<FormularioCadastro />}
           nav={<Login />}
-          className="w-full"
+          className='w-full'
           onChangeMode={(mode) => {
             navigate(`/formulario/${mode === 'app' ? 'cadastro' : 'login'}`, {
               replace: true,

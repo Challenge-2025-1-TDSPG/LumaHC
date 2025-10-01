@@ -41,9 +41,9 @@ export default function FormCadastro() {
       setLoggedUser(data.cpf);
       reset();
       // Navegação com mensagem de sucesso implícita
-      navigate('/', { 
+      navigate('/', {
         replace: true,
-        state: { message: 'Cadastro realizado com sucesso!' }
+        state: { message: 'Cadastro realizado com sucesso!' },
       });
     } catch (error) {
       // Registra o erro para depuração
