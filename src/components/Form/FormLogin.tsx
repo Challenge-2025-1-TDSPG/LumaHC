@@ -31,7 +31,7 @@ export default function FormLogin() {
     },
   });
 
-  const onSubmit = (data: LoginFormData) => {
+  const onSubmit = async (data: LoginFormData) => {
     setErrorMessage('');
     try {
       // Recupera cadastros usando utilitário
@@ -40,15 +40,21 @@ export default function FormLogin() {
         setErrorMessage('Nenhum usuário cadastrado encontrado.');
         return;
       }
+      
       // Verifica se existe usuário com CPF e data de nascimento
       const usuarioEncontrado = cadastros.find(
         (cadastro: CadastroFormData) =>
           cadastro.cpf === data.cpf && cadastro.dataNascimento === data.dataNascimento
       );
+      
       if (usuarioEncontrado) {
         setLoggedUser(usuarioEncontrado.cpf);
         reset();
-        navigate('/');
+        // Navegação com mensagem de sucesso implícita
+        navigate('/', { 
+          replace: true,
+          state: { message: `Bem-vindo(a), ${usuarioEncontrado.nome}!` }
+        });
       } else {
         setErrorMessage('CPF ou data de nascimento incorretos.');
       }

@@ -4,22 +4,33 @@ import Login from '@/components/Form/FormLogin';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+/**
+ * Página de formulário com tabs para cadastro e login
+ * Utiliza useParams para controle de navegação baseada em URL
+ */
 export default function Formulario() {
   const { tab } = useParams<{ tab?: 'cadastro' | 'login' }>();
   const navigate = useNavigate();
 
-  const isCadastro = tab === 'cadastro';
-  const defaultMode = isCadastro ? 'app' : tab === 'login' ? 'nav' : 'app';
+  // Validação e normalização do parâmetro tab
+  const validTab = tab === 'cadastro' || tab === 'login' ? tab : 'cadastro';
+  const isCadastro = validTab === 'cadastro';
+  const defaultMode = isCadastro ? 'app' : 'nav';
 
   useEffect(() => {
-    document.title = 'Formulário';
+    document.title = `LumaHC - ${isCadastro ? 'Cadastro' : 'Login'}`;
+
+    // Redireciona para tab válida se parâmetro inválido
+    if (tab && tab !== 'cadastro' && tab !== 'login') {
+      navigate('/formulario/cadastro', { replace: true });
+    }
 
     // Esconde Header/Footer enquanto estiver nesta página
     document.body.classList.add('hide-hf');
     return () => {
       document.body.classList.remove('hide-hf');
     };
-  }, []);
+  }, [tab, isCadastro, navigate]);
 
   return (
     <section

@@ -33,14 +33,18 @@ export default function FormCadastro() {
   });
 
   // Manipula o envio do formulário
-  const onSubmit = (data: CadastroFormData) => {
+  const onSubmit = async (data: CadastroFormData) => {
     setErrorMessage('');
     try {
       // Salva novo usuário usando utilitário
       saveUserToStorage(data);
       setLoggedUser(data.cpf);
       reset();
-      navigate('/');
+      // Navegação com mensagem de sucesso implícita
+      navigate('/', { 
+        replace: true,
+        state: { message: 'Cadastro realizado com sucesso!' }
+      });
     } catch (error) {
       // Registra o erro para depuração
       console.error('Erro ao salvar cadastro:', error);

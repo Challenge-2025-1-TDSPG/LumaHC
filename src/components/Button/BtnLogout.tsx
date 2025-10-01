@@ -7,10 +7,22 @@ import { useNavigate } from 'react-router-dom';
  */
 export default function BtnLogout() {
   const navigate = useNavigate();
+  
   const handleLogout = () => {
-    removeLoggedUser();
-    navigate('/');
+    try {
+      removeLoggedUser();
+      // Navegação com replace para limpar histórico
+      navigate('/', { 
+        replace: true,
+        state: { message: 'Logout realizado com sucesso.' }
+      });
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error);
+      // Navegação de fallback mesmo com erro
+      navigate('/', { replace: true });
+    }
   };
+  
   return (
     <button
       className='block w-full text-left text-red-600 hover:underline font-semibold px-4 py-2 rounded transition'
