@@ -1,6 +1,6 @@
 import { logo } from '@/assets/images';
-import { useRef, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
+import { useRef, useState } from 'react';
 import BtnLogoutHeader from '../Button/BtnLogoutHeader';
 import BtnMenu from '../Button/BtnMenu';
 import BtnSearch from '../Button/BtnSearch';
@@ -75,12 +75,7 @@ export default function Header() {
         '
           >
             {/* Botão de logout - só aparece quando logado */}
-            {isLoggedIn && (
-              <BtnLogoutHeader 
-                onClick={logout}
-                className="mr-1"
-              />
-            )}
+            {isLoggedIn && <BtnLogoutHeader onClick={logout} className='mr-1' />}
             <button
               type='button'
               aria-label='Buscar'

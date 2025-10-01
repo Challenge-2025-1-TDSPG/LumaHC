@@ -37,3 +37,11 @@ export function saveReminderToStorage(reminder: Reminder): void {
 export function setAllRemindersToStorage(reminders: Reminder[]): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(reminders));
 }
+
+/**
+ * Remove todos os lembretes do localStorage.
+ * Usado principalmente no logout para limpar dados do usuário.
+ */
+export function clearAllReminders(): void {
+  localStorage.removeItem(STORAGE_KEY);
+}
