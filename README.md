@@ -1,4 +1,4 @@
-# 🏥 LumaHC - Plataforma Digital de Saúde
+# 🏥 Luma - Plataforma Digital de Saúde
 
 <div align="center">
   <img src="./src/assets/img/logo/lumahc.svg" alt="LumaHC Logo" width="200" height="200" />
@@ -9,6 +9,7 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
   [![Vite](https://img.shields.io/badge/Vite-7.1.7-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
   [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0.0-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+  [![React Icons](https://img.shields.io/badge/React_Icons-5.4.0-E91E63?style=for-the-badge&logo=react&logoColor=white)](https://react-icons.github.io/react-icons/)
 </div>
 
 ---
@@ -40,6 +41,7 @@ Com um sistema de agendamento intuitivo, autenticação segura e tutoriais inter
 
 ### Estilização
 - **TailwindCSS 4.0.0**: Framework CSS utilitário para estilização
+- **React Icons 5.5.0**: Biblioteca de ícones vetoriais para interface
 - **Design System**: Componentes reutilizáveis e consistentes
 
 ### Formulários e Validação
@@ -76,7 +78,9 @@ Com um sistema de agendamento intuitivo, autenticação segura e tutoriais inter
 </div>
 
 ### 🔧 Ícones da Interface
-- **Navegação**: Ícones intuitivos para menu e navegação
+- **React Icons**: Ícones vetoriais SVG para ações e navegação
+- **Navegação Temporal**: FaArrowLeft/Right para calendário
+- **Navegação de Carrosséis**: IoIosArrowBack/Forward para tutoriais e integrantes
 - **Ações**: Botões de ação claramente identificáveis
 - **Status**: Indicadores visuais de estado do sistema
 
