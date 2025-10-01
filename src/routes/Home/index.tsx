@@ -14,6 +14,7 @@ export default function Home() {
   useEffect(() => {
     document.title = 'Início';
   }, []);
+
   return (
     <main className='conteudo' aria-label='Conteúdo principal da página inicial'>
       <BoasVindasSection />

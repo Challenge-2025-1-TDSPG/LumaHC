@@ -32,18 +32,30 @@ export default function FormCadastro() {
     },
   });
 
-  // Manipula o envio do formulário
+  /**
+   * Manipula o envio do formulário de cadastro
+   * Salva dados no localStorage e atualiza estado de autenticação
+   * @param data - Dados do formulário validados
+   */
   const onSubmit = async (data: CadastroFormData) => {
     setErrorMessage('');
-    // Salva novo usuário usando utilitário
-    saveUserToStorage(data);
-    setLoggedUser(data.cpf);
-    reset();
-    // Navegação com mensagem de sucesso implícita
-    navigate('/', {
-      replace: true,
-      state: { message: 'Cadastro realizado com sucesso!' },
-    });
+    
+    try {
+      // Salva novo usuário e faz login automaticamente
+      saveUserToStorage(data);
+      setLoggedUser(data.cpf);
+      
+      // Notifica componentes sobre mudança de autenticação
+      window.dispatchEvent(new CustomEvent('auth-update'));
+      
+      reset();
+      navigate('/', {
+        replace: true,
+        state: { message: 'Cadastro realizado com sucesso!' },
+      });
+    } catch (_error) {
+      setErrorMessage('Erro ao realizar cadastro. Tente novamente.');
+    }
   };
 
   return (

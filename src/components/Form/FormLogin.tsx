@@ -47,12 +47,18 @@ export default function FormLogin() {
 
       if (usuarioEncontrado) {
         setLoggedUser(usuarioEncontrado.cpf);
+        
+        // Dispara evento para atualizar todos os componentes que usam useAuth
+        window.dispatchEvent(new CustomEvent('auth-update'));
+        
         reset();
-        // Navegação com mensagem de sucesso implícita
-        navigate('/', {
-          replace: true,
-          state: { message: `Bem-vindo(a), ${usuarioEncontrado.nome}!` },
-        });
+        
+        // Delay para garantir que todos os hooks sejam atualizados
+        setTimeout(() => {
+          navigate('/', {
+            replace: true,
+          });
+        }, 150);
       } else {
         setErrorMessage('CPF ou data de nascimento incorretos.');
       }

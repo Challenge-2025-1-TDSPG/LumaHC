@@ -1,6 +1,7 @@
 import type { Reminder } from '@/types/reminder';
 import { formatDate } from '@/utils/calendarUtils';
-import { getRemindersFromStorage, setAllRemindersToStorage } from '@/utils/reminderStorage';
+import { getUserRemindersFromStorage, migrateOldReminders, setUserRemindersToStorage } from '@/utils/reminderStorage';
+import { getLoggedUser } from '@/utils/userStorage';
 import { useEffect, useState } from 'react';
 
 /**
@@ -77,22 +78,46 @@ export function useSchedule() {
   const [formDescription, setFormDescription] = useState('');
 
   /**
-   * Carrega os lembretes salvos no localStorage ao inicializar o componente
+   * Carrega os lembretes do usuário logado ao inicializar o componente
    */
   useEffect(() => {
-    const storedReminders = getRemindersFromStorage();
-    setReminders(storedReminders);
+    const loadUserReminders = () => {
+      // Migra lembretes antigos sem userCpf (limpa dados incompatíveis)
+      migrateOldReminders();
+      
+      const loggedUserCpf = getLoggedUser();
+      if (loggedUserCpf) {
+        const userReminders = getUserRemindersFromStorage(loggedUserCpf);
+        setReminders(userReminders);
+      } else {
+        // Se não há usuário logado, limpa lembretes da interface
+        setReminders([]);
+      }
+    };
+
+    loadUserReminders();
+
+    // Escuta eventos de mudança de autenticação
+    const handleAuthUpdate = () => {
+      loadUserReminders();
+    };
+
+    window.addEventListener('auth-update', handleAuthUpdate);
+    return () => window.removeEventListener('auth-update', handleAuthUpdate);
   }, []);
 
   /**
-   * Sincroniza os lembretes com o localStorage sempre que houver mudanças
+   * Sincroniza os lembretes do usuário logado com o localStorage sempre que houver mudanças
    */
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAllRemindersToStorage(reminders);
-    }, 100);
+    const loggedUserCpf = getLoggedUser();
+    if (loggedUserCpf && reminders.length >= 0) {
+      const timer = setTimeout(() => {
+        setUserRemindersToStorage(loggedUserCpf, reminders);
+      }, 100);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, [reminders]);
 
   /**
@@ -194,23 +219,36 @@ export function useSchedule() {
 
   /**
    * Salva um novo lembrete ou atualiza um existente.
-   *
+   * Automaticamente associa o lembrete ao usuário logado.
    * @param reminder - Objeto lembrete com date, time e description
    */
   const handleSaveReminder = (reminder: Reminder) => {
+    const loggedUserCpf = getLoggedUser();
+    if (!loggedUserCpf) {
+      console.error('Usuário não está logado');
+      return;
+    }
+
+    // Adiciona o CPF do usuário ao lembrete
+    const reminderWithUser: Reminder = {
+      ...reminder,
+      userCpf: loggedUserCpf,
+    };
+
     setReminders((prev) => {
       // Se está editando, substitui o lembrete existente
       if (editingReminder) {
         return prev.map((r) =>
           r.date === editingReminder.date &&
           r.time === editingReminder.time &&
-          r.description === editingReminder.description
-            ? reminder
+          r.description === editingReminder.description &&
+          r.userCpf === editingReminder.userCpf
+            ? reminderWithUser
             : r
         );
       }
       // Se é novo, adiciona ao array
-      return [...prev, reminder];
+      return [...prev, reminderWithUser];
     });
 
     // Reset do estado após salvar
@@ -235,7 +273,6 @@ export function useSchedule() {
 
   /**
    * Remove um lembrete da lista.
-   *
    * @param reminder - Lembrete a ser removido
    */
   const handleRemoveReminder = (reminder: Reminder) => {
@@ -245,7 +282,8 @@ export function useSchedule() {
           !(
             r.date === reminder.date &&
             r.time === reminder.time &&
-            r.description === reminder.description
+            r.description === reminder.description &&
+            r.userCpf === reminder.userCpf
           )
       )
     );

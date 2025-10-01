@@ -24,20 +24,22 @@ export type ReminderHandlerFn = (reminder: Reminder) => void;
 /**
  * Interface principal para objetos de lembrete.
  *
- * Representa um lembrete médico com data, horário e descrição.
+ * Representa um lembrete médico com data, horário, descrição e usuário.
  * Usado em todo o sistema de agendamento para manter consistência.
  *
  * @interface Reminder
  * @property {string} date - Data no formato ISO yyyy-mm-dd (ex: "2025-01-15")
  * @property {string} time - Horário no formato HH:mm (ex: "14:30")
  * @property {string} description - Descrição do lembrete (ex: "Consulta com Dr. Silva")
+ * @property {string} userCpf - CPF do usuário dono do lembrete (para filtrar por usuário)
  *
  * @example
  * ```typescript
  * const lembrete: Reminder = {
  *   date: "2025-01-15",
  *   time: "14:30",
- *   description: "Consulta cardiologia"
+ *   description: "Consulta cardiologia",
+ *   userCpf: "123.456.789-00"
  * };
  * ```
  */
@@ -45,4 +47,5 @@ export type Reminder = {
   date: string; // formato ISO yyyy-mm-dd
   time: string; // formato HH:mm
   description: string;
+  userCpf: string; // CPF do usuário para filtrar lembretes
 };
