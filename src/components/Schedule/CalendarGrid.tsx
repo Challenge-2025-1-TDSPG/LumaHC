@@ -1,6 +1,42 @@
 /**
- * Componente CalendarGrid
- * Exibe a grade do calendário mensal e lida com a navegação e seleção de dias.
+ * Componente CalendarGrid - Grade do Calendário Mensal
+ *
+ * Este componente é responsável por renderizar a interface visual do calendário,
+ * incluindo a grade de dias, navegação e estados visuais para diferentes tipos de dias.
+ *
+ * Funcionalidades principais:
+ * - Exibição da grade mensal com dias da semana
+ * - Suporte a seleção de dias
+ * - Indicadores visuais para dias com lembretes
+ * - Destaque para o dia atual
+ * - Bloqueio de dias passados
+ * - Design totalmente responsivo
+ * - Acessibilidade completa com navegação por teclado
+ *
+ * Estados visuais dos dias:
+ * - Dia normal: fundo branco, hover laranja claro
+ * - Dia selecionado: fundo laranja claro, borda laranja
+ * - Dia atual: borda laranja mais escura
+ * - Dia com lembrete: anel verde e marcador no canto
+ * - Dia passado: fundo cinza, texto esmaecido, não clicável
+ *
+ * @param {CalendarGridProps} props - Propriedades do componente
+ * @returns {React.JSX.Element} Grid do calendário renderizado
+ *
+ * @example
+ * ```tsx
+ * <CalendarGrid
+ *   currentMonth={2}
+ *   currentYear={2025}
+ *   today={new Date()}
+ *   selectedDate="2025-03-15"
+ *   reminders={[{date: "2025-03-20"}]}
+ *   onDayClick={(day) => console.log('Dia clicado:', day)}
+ *   getMonthName={getMonthName}
+ *   getDaysMatrix={getDaysMatrix}
+ *   formatDate={(day) => formatDate(day, currentMonth, currentYear)}
+ * />
+ * ```
  */
 
 import type { CalendarGridProps } from '@/types/schedule';
@@ -16,11 +52,12 @@ export default function CalendarGrid({
   getDaysMatrix,
   formatDate,
 }: CalendarGridProps) {
+  // Gera a matriz de dias para o mês atual
   const daysMatrix = getDaysMatrix(currentMonth, currentYear);
 
   return (
     <div className='w-full flex flex-col items-center'>
-      {/* Container do mês */}
+      {/* Container principal do calendário */}
       <div
         className='
           w-full
@@ -30,14 +67,14 @@ export default function CalendarGrid({
           flex flex-col items-center transition-all shadow-none
         '
       >
-        {/* Mês destacado */}
+        {/* Nome do mês centralizado e destacado */}
         <div className='w-full flex justify-center mb-3 sm:mb-4 md:mb-6'>
           <span className='text-xl sm:text-2xl md:text-3xl font-bold text-orange-700 tracking-wide'>
             {getMonthName(currentMonth)}
           </span>
         </div>
 
-        {/* Cabeçalho dos dias da semana */}
+        {/* Cabeçalho com os dias da semana (Dom, Seg, Ter, etc.) */}
         <div
           className='
             grid grid-cols-7
@@ -58,21 +95,25 @@ export default function CalendarGrid({
           <div>Sáb</div>
         </div>
 
-        {/* Dias do mês */}
+        {/* Grade principal com os dias do mês */}
         <div className='grid grid-cols-7 gap-1 sm:gap-2 md:gap-3 lg:gap-4 w-full'>
           {daysMatrix.map((week, i) =>
             week.map((day, j) => {
+              // Cálculos para determinar o estado visual do dia
               const dateStr = day ? formatDate(day) : '';
               const hasReminder = reminders.some((r) => r.date === dateStr);
 
+              // Verifica se é o dia de hoje
               const isToday =
                 day &&
                 today.getDate() === day &&
                 today.getMonth() === currentMonth &&
                 today.getFullYear() === currentYear;
 
+              // Verifica se é o dia selecionado
               const isSelected = selectedDate === dateStr;
 
+              // Verifica se é um dia no passado (não pode ser selecionado)
               const isPast =
                 !!day &&
                 new Date(currentYear, currentMonth, day) <
@@ -82,13 +123,13 @@ export default function CalendarGrid({
                 <div
                   key={`d${i}-${j}`}
                   className={[
-                    // layout básico da célula
+                    // Layout básico da célula do dia
                     'relative w-full',
-                    // torna quadrado, com toques confortáveis por breakpoint
+                    // Torna quadrado com tamanhos responsivos confortáveis para toque
                     'aspect-square min-w-[38px] sm:min-w-[48px] md:min-w-[64px]',
                     'rounded-lg sm:rounded-xl',
                     'select-none transition-all',
-                    // Estados (vazio, passado, ativo)
+                    // Estados condicionais baseados no tipo de dia
                     day
                       ? isPast
                         ? 'bg-gray-200 text-gray-400 border border-gray-200 cursor-not-allowed'
@@ -96,25 +137,26 @@ export default function CalendarGrid({
                           ? 'bg-orange-200 border-2 border-orange-500 shadow-md cursor-pointer'
                           : 'bg-white border border-orange-200 hover:bg-orange-100 focus:bg-orange-200 cursor-pointer shadow-sm md:shadow'
                       : 'bg-transparent pointer-events-none',
-                    // Hoje
+                    // Destaque especial para o dia atual
                     isToday && !isPast ? 'border-2 border-orange-600' : '',
-                    // Lembrete
+                    // Indicador visual para dias com lembretes
                     hasReminder && !isPast ? 'ring-1 sm:ring-2 ring-green-400' : '',
                   ].join(' ')}
                   onClick={() => !isPast && day && onDayClick(day)}
                   aria-label={day ? `Selecionar dia ${day}` : ''}
                   tabIndex={day && !isPast ? 0 : -1}
                   onKeyDown={(e) => {
+                    // Permite navegação por teclado (Enter ou Espaço)
                     if (day && !isPast && (e.key === 'Enter' || e.key === ' ')) onDayClick(day);
                   }}
                   role='button'
                 >
-                  {/* número do dia */}
+                  {/* Número do dia centralizado */}
                   <div className='absolute inset-0 flex items-center justify-center'>
                     <span
                       className={[
                         'font-bold',
-                        // tamanhos responsivos do número
+                        // Tamanhos responsivos do número
                         'text-sm xs:text-base sm:text-lg md:text-xl',
                         isPast ? 'text-gray-400' : 'text-orange-700',
                       ].join(' ')}
@@ -123,7 +165,7 @@ export default function CalendarGrid({
                     </span>
                   </div>
 
-                  {/* marcador de lembrete */}
+                  {/* Marcador visual para dias com lembretes */}
                   {hasReminder && !isPast && (
                     <span
                       className='

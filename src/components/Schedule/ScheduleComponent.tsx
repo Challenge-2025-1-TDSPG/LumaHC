@@ -1,6 +1,23 @@
 /**
  * Componente principal do Medical Schedule (Agenda de Consultas).
- * Responsivo: ajustes de paddings, tipografia e tamanhos por breakpoint.
+ *
+ * Este componente gerencia toda a interface de agendamento médico, incluindo:
+ * - Navegação entre meses do calendário
+ * - Seleção de datas para lembretes
+ * - Criação, edição e remoção de lembretes
+ * - Sistema de notificações via toast
+ * - Design responsivo com breakpoints adaptativos
+ *
+ * @returns {React.JSX.Element} Componente principal da agenda médica
+ *
+ * @example
+ * // Uso básico do componente
+ * <ScheduleComponent />
+ *
+ * @requires useSchedule Hook customizado para lógica de agendamento
+ * @requires CalendarGrid Componente de grade do calendário
+ * @requires ReminderModal Modal para gerenciar lembretes
+ * @requires Toast Componente de notificações
  */
 
 import { useSchedule } from '@/hooks/useSchedule';
@@ -13,25 +30,39 @@ import CalendarGrid from './CalendarGrid';
 import ReminderModal from './ReminderModal';
 
 export default function ScheduleComponent(): React.JSX.Element {
-  // Estado de UI
+  // Estado de UI para controle de modal, toast e ações de lembrete
   const [modalError, setModalError] = useState<string | null>(null);
   const [toast, setToast] = useState<ToastState>(null);
   const [reminderAction, setReminderAction] = useState<ReminderAction | null>(null);
 
-  // Toast helper
+  /**
+   * Função auxiliar para exibir notificações toast
+   * @param message - Mensagem a ser exibida
+   * @param type - Tipo da notificação (success ou error)
+   */
   const showToast: ShowToastFn = (message, type = 'success') => {
     setToast({ message, type });
+    // Remove o toast automaticamente após 3 segundos
     setTimeout(() => setToast(null), 3000);
   };
 
+  /**
+   * Effect para exibir toast quando uma ação de lembrete é realizada
+   * Monitora mudanças no estado reminderAction e exibe feedback apropriado
+   */
   useEffect(() => {
     if (!reminderAction) return;
+
+    // Exibe mensagem específica baseada na ação realizada
     if (reminderAction === 'add') showToast('Lembrete adicionado com sucesso!', 'success');
     if (reminderAction === 'edit') showToast('Lembrete editado com sucesso!', 'success');
     if (reminderAction === 'remove') showToast('Lembrete removido com sucesso!', 'success');
+
+    // Reset do estado após exibir toast
     setReminderAction(null);
   }, [reminderAction]);
 
+  // Extração de estados e handlers do hook customizado useSchedule
   const {
     today,
     currentMonth,
@@ -54,22 +85,31 @@ export default function ScheduleComponent(): React.JSX.Element {
     remindersForCalendar,
   } = useSchedule();
 
-  // Wrappers para registrar ação
+  /**
+   * Wrappers para registrar ação de lembrete e disparar toast
+   * Estas funções encapsulam as ações originais adicionando feedback visual
+   */
   const handleSaveReminderWithAction: ReminderHandlerFn = (reminder) => {
     setModalError(null);
     handleSaveReminder(reminder);
     setReminderAction('add');
   };
+
   const handleEditReminderWithAction: ReminderHandlerFn = (reminder) => {
     handleEditReminder(reminder);
     setReminderAction('edit');
   };
+
   const handleRemoveReminderWithAction: ReminderHandlerFn = (reminder) => {
     handleRemoveReminder(reminder);
     setReminderAction('remove');
   };
 
-  // Limites de navegação
+  /**
+   * Cálculo dos limites de navegação do calendário
+   * Permite navegação até 6 meses à frente da data atual
+   * Bloqueia navegação para meses anteriores ao atual
+   */
   const limitNextDate = new Date(today.getFullYear(), today.getMonth() + 6, 1);
   const nextDate =
     currentMonth === 11
@@ -169,6 +209,7 @@ export default function ScheduleComponent(): React.JSX.Element {
                   }
                   px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg lg:px-7 lg:py-3.5 lg:text-xl`}
                 onClick={() => {
+                  // Validação: verifica se uma data foi selecionada
                   if (!selectedDate) {
                     showToast(
                       'Selecione um dia no calendário para adicionar um lembrete!',
@@ -176,12 +217,15 @@ export default function ScheduleComponent(): React.JSX.Element {
                     );
                     return;
                   }
+
+                  // Validação: verifica se o usuário está logado
                   const usuarioLogado = localStorage.getItem('usuarioLogado');
                   if (!usuarioLogado) {
                     setModalError('Você precisa estar logado para adicionar lembretes!');
                     showToast('Faça login ou cadastro para adicionar lembretes.', 'error');
                     setShowModal(false);
                   } else {
+                    // Usuário logado e data selecionada: abre modal
                     setModalError(null);
                     setShowModal(true);
                   }
