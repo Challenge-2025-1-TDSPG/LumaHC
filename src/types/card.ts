@@ -6,9 +6,10 @@
 /**
  * Props para cards de acesso rápido
  */
+import type { IconType } from 'react-icons';
+
 export interface AcessoCardProps {
-  imgSrc: string;
-  imgAlt: string;
+  Icon: IconType;
   title: string;
   description: string;
   href: string;

@@ -1,8 +1,4 @@
 //! Avatares
-export { default as celular } from '@/assets/img/avatares/celular.svg';
-export { default as pessoa } from '@/assets/img/avatares/pessoa.svg';
-export { default as user } from '@/assets/img/avatares/user.svg';
-export { default as users } from '@/assets/img/avatares/users.svg';
 export { default as logo } from '@/assets/img/logo/lumahc.svg';
 
 //! Ícones
