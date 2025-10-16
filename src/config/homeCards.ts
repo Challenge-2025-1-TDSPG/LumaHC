@@ -1,34 +1,26 @@
-/**
- * Lista de cards exibidos na página inicial
- * Cada card representa um acesso rápido a uma funcionalidade principal do sistema
- *
- * @type {HomeCard[]}
- */
-import { celular, pessoa, users } from '@/assets/images';
+import { FaMobileScreen } from 'react-icons/fa6';
+import { IoPerson, IoPeopleSharp } from 'react-icons/io5';
 import type { HomeCard } from '@/types/navigation';
 
 export const HOME_CARDS: HomeCard[] = [
   {
     label: 'Auxílio Teleconsulta',
     href: '/auxilio/teleconsulta',
-    imgSrc: celular,
-    imgAlt: 'Ícone de um celular',
+    Icon: FaMobileScreen,
     title: 'Auxílio Teleconsulta',
     description: 'Veja como acessar sua consulta online.',
   },
   {
     label: 'Auxílio Cadastro',
     href: '/auxilio/cadastro',
-    imgSrc: pessoa,
-    imgAlt: 'Imagem de uma Pessoa',
+    Icon: IoPerson,
     title: 'Auxílio Cadastro',
     description: 'Ajuda para se cadastrar no Portal do Paciente.',
   },
   {
     label: 'Integrantes',
     href: '/integrantes',
-    imgSrc: users,
-    imgAlt: 'Imagem de duas pessoas',
+    Icon: IoPeopleSharp,
     title: 'Conheça os Integrantes',
     description: 'Veja quem são os alunos desenvolvedores.',
   },
