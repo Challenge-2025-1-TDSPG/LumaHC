@@ -13,7 +13,7 @@ import Webcam from 'react-webcam';
  * - Libs: react-use-face-detection (hook), react-webcam, @mediapipe/face_detection e @mediapipe/camera_utils.
  * - Binários MediaPipe servidos localmente via pasta `public/mediapipe/face_detection`.
  */
-export default function FaceFramingTest() {
+export default function FaceCheck() {
   // Dimensões base do preview (podem ser ajustadas por responsividade via Tailwind)
   const width = 640;
   const height = 480;
