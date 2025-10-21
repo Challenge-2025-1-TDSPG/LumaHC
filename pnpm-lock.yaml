@@ -32,6 +32,9 @@ importers:
       react-use-face-detection:
         specifier: ^1.0.2
         version: 1.0.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      react-voice-visualizer:
+        specifier: ^2.0.8
+        version: 2.0.8(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react-webcam:
         specifier: ^7.2.0
         version: 7.2.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -1767,6 +1770,12 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
+
+  react-voice-visualizer@2.0.8:
+    resolution: {integrity: sha512-oA/IyNeh15+mERgm2n33IAqQaMGBEFN1n3gs2V/0LbLyscqsbhNo8JOFXh2I9neIqYJ4q27TEzXzbO00Xq/aXg==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
 
   react-webcam@7.2.0:
     resolution: {integrity: sha512-xkrzYPqa1ag2DP+2Q/kLKBmCIfEx49bVdgCCCcZf88oF+0NPEbkwYk3/s/C7Zy0mhM8k+hpdNkBLzxg8H0aWcg==}
@@ -3717,6 +3726,11 @@ snapshots:
       react-dom: 19.1.1(react@19.1.1)
       react-webcam: 7.2.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       standard-version: 9.5.0
+
+  react-voice-visualizer@2.0.8(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+    dependencies:
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
   react-webcam@7.2.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
