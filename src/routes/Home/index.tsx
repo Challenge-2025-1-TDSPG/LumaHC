@@ -1,5 +1,6 @@
 import AcessosSection from '@/components/HomeComponents/AcessoSection';
 import BoasVindasSection from '@/components/HomeComponents/BoasVindasSection';
+import DiagnosticoSection from '@/components/HomeComponents/DiagnosticoSection';
 import { useEffect } from 'react';
 
 /**
@@ -19,6 +20,7 @@ export default function Home() {
     <main className='conteudo' aria-label='Conteúdo principal da página inicial'>
       <BoasVindasSection />
       <AcessosSection />
+      <DiagnosticoSection onOpen={() => {}} />
     </main>
   );
 }
