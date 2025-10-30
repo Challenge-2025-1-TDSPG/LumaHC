@@ -1,0 +1,20 @@
+export default {
+  multipass: true,
+  floatPrecision: 2,
+  plugins: [
+    'removeDoctype',
+    'removeXMLProcInst',
+    'removeComments',
+    'removeMetadata',
+    'removeEditorsNSData',
+    'removeHiddenElems',
+    'removeEmptyText',
+    'removeEmptyContainers',
+    'removeUnknownsAndDefaults',
+    'removeUselessStrokeAndFill',
+    { name: 'cleanupNumericValues', params: { floatPrecision: 2 } },
+    { name: 'convertPathData', params: { floatPrecision: 2 } },
+    { name: 'removeAttrs', params: { attrs: '(id|data-name|class)' } },
+    { name: 'removeDimensions' },
+  ],
+};

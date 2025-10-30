@@ -12,7 +12,10 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check .",
     "check": "pnpm -s lint && pnpm -s format:check",
-    "fix": "pnpm -s lint:fix && pnpm -s format"
+    "fix": "pnpm -s lint:fix && pnpm -s format",
+    "svg:min": "pnpm exec svgo -f src/assets/svg -r --config=svgo.config.js",
+    "img:modern": "pnpm dlx @squoosh/cli --webp auto --avif auto ./src/assets/**/*.{jpg,jpeg,png}",
+    "img:hero": "pnpm dlx @squoosh/cli --resize '{\"width\":640}' --avif auto --webp auto ./src/assets/hero.jpg -d public/imgs && pnpm dlx @squoosh/cli --resize '{\"width\":960}' --avif auto --webp auto ./src/assets/hero.jpg -d public/imgs && pnpm dlx @squoosh/cli --resize '{\"width\":1280}' --avif auto --webp auto ./src/assets/hero.jpg -d public/imgs && pnpm dlx @squoosh/cli --resize '{\"width\":1920}' --avif auto --webp auto ./src/assets/hero.jpg -d public/imgs"
   },
   "dependencies": {
     "@mediapipe/camera_utils": "^0.3.1675466862",
@@ -41,9 +44,14 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "prettier": "^3.6.2",
+    "svgo": "^4.0.0",
+    "svgo-cli": "^2.8.0",
     "tailwindcss": "^4.0.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.7"
+    "vite": "^7.1.7",
+    "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-svgr": "^4.5.0"
   }
 }
