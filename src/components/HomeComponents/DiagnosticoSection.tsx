@@ -9,7 +9,7 @@ export default function DiagnosticoSection({ onOpen }: Props) {
       aria-labelledby="diagnostico-title"
       className="mx-auto max-w-5xl w-full px-4 mt-8"
     >
-      <div className="rounded-2xl border border-amber-100 bg-amber-50 p-5 shadow-sm">
+      <div className="rounded-2xl border border-[#FFD3BA] bg-[#FFF1E6] p-5 shadow-sm">
         <h2 id="diagnostico-title" className="text-xl font-semibold text-slate-800">
           Diagnóstico de Dispositivos
         </h2>
@@ -34,14 +34,14 @@ export default function DiagnosticoSection({ onOpen }: Props) {
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <button
             onClick={onOpen}
-            className="inline-flex items-center gap-2 rounded-xl bg-amber-400 text-slate-900 px-4 py-2 hover:brightness-95"
+            className="inline-flex items-center gap-2 rounded-xl bg-clikColor text-white px-4 py-2 hover:brightness-95"
           >
             <FiSearch aria-hidden />
             Iniciar Diagnóstico
           </button>
 
           <span className="text-xs text-slate-500">
-            Nada é enviado ao servidor — o teste roda no seu navegador.
+            Esse teste só é feito no seu navegador.
           </span>
         </div>
       </div>
